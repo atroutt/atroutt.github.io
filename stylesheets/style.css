@@ -1,0 +1,130 @@
+@import url('fontawesome.min.css');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #444444;
+}
+
+h1 {
+  font-family: 'Cabin', sans-serif;
+  font-size: 70px;
+}
+
+h2 {
+  font-family: 'Cabin', sans-serif;
+  font-size: 40px;
+}
+
+p {
+  font-size: 20px;
+}
+
+img {
+  margin-bottom: 50px;
+}
+
+section {
+  position: relative;
+  text-align: center;
+  padding: 8%;
+}
+
+header {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+footer {
+  background-color: #8C837C;
+  padding: 2%;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+
+.feature-image {
+  width: 36%;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.feature-image img {
+  width: 100%;
+  text-align: center;
+}
+
+.slide-odd {
+  background-color: #8C837C;
+  height: 700px;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.slide-even {
+  z-index: 2;
+  background-color: white;
+  text-align: center;
+  background-color: #F73C94;
+}
+
+
+.text {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/*
+F73C94 # pink
+5DA0B2 # blue
+F6D31E # yellow
+93CD4F # green
+8C837C # gray
+*/
+
+#slide-1 h2 {
+  margin-top: 200px;
+}
+
+#slide-1 {
+  color: #fff;
+  height: 400px;
+  background-image: url(../images/photo11.jpg);
+}
+
+#slide-2 {
+  background-color: #5DA0B2;
+}
+
+#slide-3 {
+  background-image: url(../images/photo4.jpg);
+}
+
+#slide-4 {
+  background-color: #F6D31E;
+}
+
+#slide-5 {
+  background-image: url(../images/photo3.jpg);
+}
+
+#slide-6 {
+  background-color: #93CD4F;
+}
+
+#slide-7 {
+  background-image: url(../images/photo11.jpg);
+}
