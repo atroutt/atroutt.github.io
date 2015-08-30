@@ -119,6 +119,15 @@ footer a:hover {
   text-align: center;
 }
 
+@media screen and (max-width: 580px) {
+  .feature-image {
+    display: none;
+  }
+
+  .text {
+    width: 100%;
+  }
+}
 /*
 F73C94 # pink
 5DA0B2 # blue
