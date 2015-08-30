@@ -36,6 +36,16 @@ ul {
   padding-left: 2em;
 }
 
+@media screen and (max-width: 580px) {
+  ul {
+    list-style-type: disc;
+    padding-left: 2em;
+  }
+  .extra-text {
+    display:none;
+  }
+}
+
 h1 {
   font-size: 100px;
   font-weight: 400;
@@ -181,7 +191,6 @@ F68B33 # orange
     padding-top: 291px;
   }
 }
-
 
 #slide-2 {
   background-color: #5DA0B2;
