@@ -183,8 +183,6 @@ F68B33 # orange
 @media screen and (max-width: 580px) {
   #slide-1 {
      background-image: url(../images/bw_audrey_580.jpg);
-     background-size: 580px 380px;
-     background-repeat: no-repeat;
      height: 380px;
   }
   #slide-1 h1 {
