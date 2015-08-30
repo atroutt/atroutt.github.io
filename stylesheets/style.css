@@ -118,9 +118,9 @@ F68B33 # orange
 */
 
 #slide-1 {
-  font-family: 'Vollkorn', serif;
-  height: 900px;
-  background-image: url(../images/bw_audrey.jpg);
+ font-family: 'Vollkorn', serif;
+ height: 900px;
+ background-image: url(../images/bw_audrey.jpg);
 }
 
 #slide-1 header {
@@ -161,12 +161,40 @@ F68B33 # orange
   color: #5DA0B2;
 }
 
+@media screen and (max-width: 580px) {
+  #slide-1 {
+     background-image: url(../images/bw_audrey_580.jpg);
+     background-size: 580px 380px;
+     background-repeat: no-repeat;
+     height: 380px;
+  }
+  #slide-1 h1 {
+    font-size: 50px;
+  }
+  #slide-1 header .arrow {
+    margin-top: 5px;
+  }
+  .slide-odd {
+    height: 350px;
+  }
+  h2 {
+    padding-top: 291px;
+  }
+}
+
+
 #slide-2 {
   background-color: #5DA0B2;
 }
 
 #slide-3 {
   background-image: url(../images/cityhall.jpg);
+}
+
+@media screen and (max-width: 580px) {
+  #slide-3 {
+    background-image: url(../images/cityhall_580.jpg);
+  }
 }
 
 #slide-3 h2 {
@@ -180,6 +208,12 @@ F68B33 # orange
 
 #slide-5 {
   background-image: url(../images/lego.jpg);
+}
+
+@media screen and (max-width: 580px) {
+  #slide-5 {
+    background-image: url(../images/lego_580.jpg);
+  }
 }
 
 #slide-5 h2 {
@@ -196,4 +230,10 @@ F68B33 # orange
 
 #slide-7 h2 {
   color: #93CD4F;
+}
+
+@media screen and (max-width: 580px) {
+  #slide-7 {
+    background-image: url(../images/photo11_580.jpg);
+  }
 }
