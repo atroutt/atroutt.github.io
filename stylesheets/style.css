@@ -97,12 +97,25 @@ header p {
   max-width: 50%;
 }
 
-.feature-image-odd {
+.feature-image-right {
   float: right;
   padding: 10px;
   max-width: 50%;
 }
 
+@media screen and (max-width: 580px) {
+  .feature-image {
+    float: none;
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .feature-image-right {
+    float: none;
+    padding: 10px;
+    max-width: 100%;
+  }
+}
 footer {
   background-image: url(../images/pexels-photo-479453.jpeg);
   height: 300px;
