@@ -32,8 +32,14 @@ a {
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: disc;
   padding-left: 2em;
+}
+
+li {
+  list-style: disc outside none;
+  display: list-item;
+  margin-left: 1em;
 }
 
 h1 {
@@ -87,6 +93,7 @@ header p {
 .feature-image {
   float: left;
   padding: 10px;
+  padding-right: 30px;
   max-width: 50%;
 }
 
@@ -121,7 +128,7 @@ F68B33 # orange
 * {
   padding: 0;
   margin: 0;
-  list-style: none;
+  list-style: disc;
   box-sizing: border-box;
   outline: none;
   font-weight: normal;
