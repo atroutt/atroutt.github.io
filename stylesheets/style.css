@@ -40,8 +40,15 @@ h1 {
   font-family: 'Vollkorn', serif;
   font-size: 100px;
   font-weight: 400;
-  sline-height: 85px;
   text-align: left;
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 580px) {
+  h1 {
+    font-size: 30px;
+    font-weight: 400;
+  }
 }
 
 p {
@@ -52,6 +59,13 @@ p {
 .header-image {
   float: right;
   padding: 10px;
+  max-width: 50%;
+}
+
+@media screen and (max-width: 1050px) {
+  .header-image {
+    display: none;
+  }
 }
 
 header {
@@ -61,24 +75,25 @@ header {
 }
 
 header p {
-  margin-left: 10px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 580px) {
+  header {
+    height: auto;
+  }
 }
 
 .feature-image {
   float: left;
   padding: 10px;
+  max-width: 50%;
 }
 
 .feature-image-odd {
   float: right;
   padding: 10px;
-  max-width: 33%
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+  max-width: 50%;
 }
 
 footer {
