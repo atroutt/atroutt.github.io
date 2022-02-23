@@ -76,8 +76,7 @@ p {
 
 header {
   height: 287px;
-  background-image: url(../images/pexels-photo-479453.jpeg);
-  background-color: #cccccc;
+  background-color: #eee;
 }
 
 header p {
@@ -117,7 +116,6 @@ header p {
   }
 }
 footer {
-  background-image: url(../images/pexels-photo-479453.jpeg);
   height: 300px;
   width: 100%;
   padding: 30px;
@@ -178,7 +176,7 @@ F68B33 # orange
 }
 
 .tabs > span {
-  background: #f0f0f0;
+  background: #ddd;
   text-align: center;
   overflow: hidden;
 }
