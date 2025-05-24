@@ -1,4 +1,4 @@
-# Audrey Troutt
+# Source code for audreytroutt.com
 
 Personal website of Audrey Troutt, an accomplished hands-on technology leader. This site showcases her experience, speaking engagements, writings, and teaching activities.
 
@@ -35,4 +35,4 @@ As this is a simple static website, testing is primarily manual:
     - For CSS, tools like [CSSLint](http://csslint.net/) or the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) can be helpful.
     - For JavaScript, [ESLint](https://eslint.org/) or [JSHint](https://jshint.com/) are popular choices.
 
-If you're not me and you actually did all this, maybe you should apply for a QA job? Or just, you know, let me know if something's broken. Politely.
+If you're not me and you actually did all this, let me know if something's broken!
