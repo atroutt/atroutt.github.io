@@ -1,4 +1,4 @@
-![feature image](images/audrey_2020_400.png)
+<img class="feature-image" src="images/audrey_2020_400.png" alt="photo of Audrey">
 
 Audrey Troutt is the CTO at Tomo and is based in Philadelphia, PA. At Tomo she founded the engineering organization, led the team to build Tomo's technology platform from the ground up, and launched in 2021. Tomo is building the future for how homes are bought -- bringing certainty and joy to the home buying process. We are with you for [the most delightful, no-drama, low-cost mortgage possible](https://tomo.com/).
 

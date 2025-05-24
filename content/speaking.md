@@ -1,4 +1,4 @@
-![feature image right](images/scna2.jpg)
+<img class="feature-image-right" src="images/scna2.jpg" alt="photo of Audrey speaking at Software as a craft, North America in 2016">
 
 I am available to speak at tech user groups and conferences. Some of my past topics include technical documenation, effective user analytics integration patterns, career growth from tech lead up to engineering director, Android metaprogramming, TDD, automated testing for mobile, building effective remote development teams, and teaching kids to code. I'm eager to talk more about mobile app development, deep linking, mobile marketing automation, A/B testing implementation, automated testing, engineering management, and SDK development.
 
