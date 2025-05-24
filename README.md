@@ -3,7 +3,7 @@
 Personal website of Audrey Troutt, an accomplished hands-on technology leader. This site showcases her experience, speaking engagements, writings, and teaching activities.
 
 ## Running the App
-Look, this is my personal portfolio site. Why would *you* want to run it? Are you me? If so, hi Audrey! Here's how you (I?) get it running locally if you (I?) forgot:
+Look, this is my personal portfolio site. Why would *you* want to run it? Are you me? If so, hi Audrey! Here's the most basic ai-generated instructions for how to pull down a repo and load it in case you (I?) forgot:
 
 1. Clone this repository to your local machine:
    ```bash
