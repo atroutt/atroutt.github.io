@@ -88,6 +88,20 @@ p { /* Global paragraph style */
   /* color: #434535; Inherits from body */
 }
 
+/* Feature images used within markdown content */
+.feature-image {
+  float: left;
+  margin-right: 30px; 
+  margin-bottom: 10px;
+  max-width: 50%; 
+}
+.feature-image-right {
+  float: right;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  max-width: 50%;
+}
+
 .header-image { /* Preserved if used elsewhere, though not in current header structure */
   float: right;
   padding: 10px;
@@ -95,8 +109,25 @@ p { /* Global paragraph style */
 }
 
 @media screen and (max-width: 1050px) {
-  .header-image {
+  /* This rule also applies to .feature-image and .feature-image-right if they were intended to be hidden.
+     However, the task is about desktop float, so we'll keep their general float rules.
+     The original media query for .feature-image specifically was (max-width: 580px) to stack them.
+     Let's ensure that responsive stacking behavior is also preserved or reinstated if it was removed.
+  */
+  .header-image { /* This specific rule only targets .header-image */
     display: none;
+  }
+}
+
+/* Responsive adjustments for feature images (stacking on small screens) */
+@media screen and (max-width: 580px) {
+  .feature-image, 
+  .feature-image-right {
+    float: none;
+    margin-left: auto; /* Center images when stacked */
+    margin-right: auto;
+    margin-bottom: 10px; /* Keep bottom margin */
+    max-width: 100%; /* Allow full width when stacked */
   }
 }
 
@@ -128,17 +159,159 @@ header p { /* Tagline in header */
   /* width: 100%; Not strictly needed as p is block by default */
 }
 
-/* @media screen and (max-width: 768px) { ... } This media query is preserved below ... */
+@media screen and (max-width: 768px) { /* Responsive adjustments for header */
+  header {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+  header h1 {
+    font-size: 40px; /* Adjust for smaller screens */
+  }
+  #main-nav {
+    display: flex; /* Enable flex container */
+    flex-wrap: wrap; /* Allow links to wrap to the next line */
+    justify-content: center; /* Center the links */
+    margin-top: 10px; /* Adjusted space between header text and nav */
+    width: 100%; /* Make nav take full width to center its items */
+  }
+  #main-nav a.nav-link {
+    /* display: block; Removed to allow side-by-side */
+    /* margin-left: 0; Removed */
+    /* margin-bottom: 5px; Removed */
+    /* text-align: center; Removed as links are no longer block full-width */
+    padding: 6px 8px; /* Adjusted padding for mobile */
+    margin: 4px; /* Spacing around each link */
+    /* font-size: 0.9em; /* Optional: if text size needs slight reduction - keeping default for now */
+  }
+  div.content > section > h1 { /* Hide page titles from markdown on mobile */
+    display: none;
+  }
+}
+
+footer {
+  background-color: #6A6070;
+  padding: 20px;
+  color: #D0D0D0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  text-align: center; /* For centering the ul/buttons */
+}
+footer ul { /* Social media list */
+  list-style-type: none;
+  padding-left: 0; 
+  margin: 0;
+  display: inline-block; /* To allow centering via text-align on parent */
+  /* text-align: center; This was moved to footer for the ul itself if ul is inline-block */
+}
+/*
+footer ul li {
+  float:left; 
+  list-style: none;
+  margin-left: 0em;
+}
+footer ul li:after { content:"·"; color: #D0D0D0; margin: 0 5px; }
+footer ul li:last-child:after { content:""; }
+footer ul li a { 
+ margin:0; 
+ color: #DEF056; 
+ text-decoration: none;
+}
+footer ul li a:hover {
+ color: #FFFFFF; 
+ text-decoration: underline;
+}
+*/
+
+/* Footer Buttons (specific for GitHub, SpeakerDeck etc. if they use .buttons class) */
+footer .buttons {
+  background-color: #DEF056; /* Lime */
+  color: #434535 !important; /* Dark Gray-Green text */
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 0 5px; /* Spacing around buttons */
+  display: inline-block; 
+  /* font-weight: bold; */ /* Removed as not in explicit restore instructions */
+  /* transition: background-color 0.3s ease, color 0.3s ease; */ /* Removed as not in explicit restore instructions */
+}
+
+/* footer .buttons i { Removed rule for icon spacing } */
+
+/* footer .buttons:hover { Removed as not in explicit restore instructions } */
 
 
-/* .feature-image, .feature-image-right, and their media queries are preserved below ... */
+/* OLD LAVENDER THEME & TAB STYLES - TO BE REMOVED/COMMENTED */
+/*
+.tabs {
+  background: #E6E6FA;
+  position: relative;
+  padding: 10px 10px 0 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.tab-link {
+  background: #DCD0FF;
+  color: #483D8B;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px 5px 0 0;
+  margin-right: 5px;
+  border: 1px solid transparent; 
+  border-bottom: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
 
-/* footer and its child styles are preserved below ... */
+.tab-link:hover {
+  background: #C8BFE7;
+  color: #3A2D7B;
+}
 
+.tab-link.active {
+  background: #FFFFFF;
+  color: #6A5ACD;
+  border-left: 1px solid #D8BFD8;
+  border-right: 1px solid #D8BFD8;
+  border-top: 1px solid #D8BFD8;
+  border-bottom: 2px solid #6A5ACD;
+  margin-bottom: -2px;
+  z-index: 2;
+}
 
-/* OLD LAVENDER THEME & TAB STYLES are preserved below (commented out) ... */
+.tab-content {
+  background-color: #FFFFFF;
+  padding: 20px;
+  width: 100%;
+  min-height: 340px;
+  border: 1px solid #D8BFD8;
+  border-top: none;
+  clear: both;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 0;
+}
 
+.tab-content section {
+  width: 100%;
+}
+
+.tab-content section h1 {
+  margin-top: 15px;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: left;
+  color: #483D8B;
+  padding-left: 0;
+}
+.tab-content ul, .tab-content ol, .tab-content li removed, covered by global and content section styles
+*/
 
 /* NEW NAVIGATION STYLES */
 #main-nav {
