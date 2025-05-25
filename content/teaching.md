@@ -1,3 +1,5 @@
+# Teaching
+
 <img class="feature-image-right" src="images/audrey_gitw_teaching_left.jpg" alt="photo of me teaching the Android for Beginners class in 2017 at Geeks in the Woods">
 
 ## Android for Beginners

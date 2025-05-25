@@ -1,3 +1,5 @@
+# Writing
+
 <img class="feature-image" src="images/laptop.jpg" alt="photo of my old laptop with stickers all over it">
 
 Publications:

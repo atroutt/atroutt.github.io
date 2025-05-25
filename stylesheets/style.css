@@ -39,6 +39,8 @@ body {
   color: #434535; /* Dark gray/green for default text */
   background-color: #FDFDFD; /* Neutral background */
   line-height: 1.6;
+  padding-bottom: 80px; /* For fixed footer */
+  min-height: 100vh; /* Ensure body takes at least full viewport height */
 }
 
 /* General link style - will be overridden in specific contexts like nav, footer, content sections */
@@ -175,6 +177,10 @@ footer {
   background-color: #6A6070; /* Medium gray-purple */
   color: #D0D0D0; /* Light gray for footer text */
   text-align: center; /* Center footer content */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
 }
 footer ul { /* Social media list */
   /* float: right; Removed float for centered layout */
