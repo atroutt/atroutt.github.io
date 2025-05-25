@@ -1,6 +1,6 @@
 function loadPageSpecificContent(pageName) {
   // 1. Content Loading
-  const contentPath = 'content/' + pageName + '.md';
+  const contentPath = '/content/' + pageName + '.md';
   const targetElement = document.getElementById('page-content');
 
   if (!targetElement) {
