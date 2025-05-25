@@ -1,3 +1,5 @@
+## News
+
 ### [Tomo CTO Audrey Troutt on Her Journey from Music to Tech Leader](https://technical.ly/professional-development/tomo-cto-audrey-troutt-how-i-got-here/)
 
 <img  class="feature-image-right"  style="width:300px" src="https://technical.ly/wp-content/uploads/2024/02/IMG_0220-1200x800.jpg" alt="Audrey Troutt - Technical.ly">
@@ -6,7 +8,7 @@
 
 A Q&A-style profile in Technical.ly’s “How I Got Here” series, highlighting Audrey’s unconventional path from music and physics to tech leadership, and her commitment to mentoring and community involvement.
 
-<div class="clearfix"></div>
+<div class="clearfix" style="clear: both;"/>
 
 ### [RealLIST Engineers 2022: Meet 20 Tech Leaders Changing Philly's Code](https://technical.ly/software-development/reallist-engineers-2022-philly/)
 
@@ -16,10 +18,9 @@ A Q&A-style profile in Technical.ly’s “How I Got Here” series, highlightin
 
 Recognition by Technical.ly as one of Philadelphia's influential technologists, acknowledging Audrey’s impact through building, mentoring, and community organizing.
 
-<div class="clearfix"></div>
+<div class="clearfix" style="clear: both;"/>
 
-
-## Other Publications:
+## Publications
 
 *   [A Chat with WITS Virtual Summit Speaker — Audrey Troutt](https://medium.com/@WomenTechSummit/a-chat-with-wits-virtual-summit-speaker-audrey-troutt-80c4cda3905e) Published Interview 2020
 *   [This Philly conference scans the horizon of what’s next in enterprise technology](https://technical.ly/philly/2019/05/23/philly-emerging-technologies-ete-conference-whats-next-in-enterprise-technology/) Technical.ly Philly Article 2019
