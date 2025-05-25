@@ -14,7 +14,7 @@ Look, this is my personal portfolio site. Why would *you* want to run it? Are yo
 If you're NOT Audrey, seriously, there are probably more interesting things to do. Like watching paint dry. Or learning interpretive dance.
 
 ## Testing
-Again, this is *my* site. So, unless you're me (Audrey), why are you testing this? Did you find a bug? Are you trying to help? That's... unexpectedly nice of you. Anyway, if I (Audrey) need to test my own site, here's what I'd do:
+Again, this is *my* site. So, unless you're me (Audrey), why are you testing this? Did you find a bug? Are you trying to help? That's... unexpectedly nice of you. Anyway, here are some basic ai-generated tips:
 
 As this is a simple static website, testing is primarily manual:
 1. **Visual Inspection:**
