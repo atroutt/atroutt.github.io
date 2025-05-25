@@ -14,6 +14,7 @@
 	      window.scrollReveal = new scrollReveal();
 	  </script>
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="nIvdLXXYUGFBoBZE6PtVTg" async></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
   </head>
   <body>
     <div class="content">
@@ -21,17 +22,14 @@
         <h1>Audrey Troutt</h1>
         <p>Startup CTO & hands-on engineering leader building products, teams, and cultures that scale.</p>
         <nav id="main-nav">
-          <a href="#about" class="nav-link">About</a>
-          <a href="#speaking" class="nav-link">Speaking</a>
-          <a href="#writing" class="nav-link">Writing</a>
-          <a href="#teaching" class="nav-link">Teaching</a>
+          <a href="/" class="nav-link">About</a>
+          <a href="/speaking/" class="nav-link">Speaking</a>
+          <a href="/writing/" class="nav-link">Writing</a>
+          <a href="/teaching/" class="nav-link">Teaching</a>
         </nav>
       </header>
       <!-- Content sections are now direct children of div.content -->
       <section id="content-about"></section>
-      <section id="content-speaking"></section>
-      <section id="content-writing"></section>
-      <section id="content-teaching"></section>
       <footer>
         <ul>
           <li><a class="buttons github" href="https://github.com/atroutt">GitHub</a></li>
@@ -58,40 +56,46 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const navLinks = document.querySelectorAll('.nav-link');
-      const contentSections = document.querySelectorAll('div.content > section');
+      // Only #content-about is relevant now
+      const contentAboutSection = document.getElementById('content-about');
 
       async function loadContent(pageName) {
-        const targetElementId = 'content-' + pageName;
-        const targetElement = document.getElementById(targetElementId);
-
-        if (!targetElement) {
-          console.error('Target element ' + targetElementId + ' not found.');
+        if (pageName !== 'about') {
+          // This script now only handles the 'about' page content for index.html
+          console.log('loadContent called with pageName:', pageName, '- only "about" is handled by index.html script.');
+          // Optionally hide #content-about if other pages were linked here, though not expected
+          if(contentAboutSection) contentAboutSection.style.display = 'none';
           return;
         }
 
-        // Hide all content sections first
-        contentSections.forEach(section => {
-          section.style.display = 'none';
-        });
+        if (!contentAboutSection) {
+          console.error('Target element "content-about" not found.');
+          return;
+        }
 
-        // Show the target section
-        targetElement.style.display = 'block';
+        // Ensure only #content-about is visible
+        contentAboutSection.style.display = 'block';
+        // Hide other sections if they existed (though they are removed from HTML)
+        // For example, if there was a contentSections collection:
+        // contentSections.forEach(section => {
+        //   if(section.id !== 'content-about') section.style.display = 'none';
+        // });
 
-        // Load content if it hasn't been loaded yet (simple check to prevent re-fetching)
-        if (!targetElement.dataset.loaded) {
+        // Load content if it hasn't been loaded yet
+        if (!contentAboutSection.dataset.loaded) {
           try {
-            const response = await fetch('content/' + pageName + '.md');
+            const response = await fetch('content/about.md');
             if (!response.ok) {
-              console.error('Failed to load ' + pageName + '.md: ' + response.statusText);
-              targetElement.innerHTML = '<p>Error loading content. Please try again later.</p>';
+              console.error('Failed to load about.md: ' + response.statusText);
+              contentAboutSection.innerHTML = '<p>Error loading content. Please try again later.</p>';
               return;
             }
             const markdownText = await response.text();
-            targetElement.innerHTML = marked.parse(markdownText);
-            targetElement.dataset.loaded = true; // Mark as loaded
+            contentAboutSection.innerHTML = marked.parse(markdownText);
+            contentAboutSection.dataset.loaded = true; // Mark as loaded
           } catch (error) {
-            console.error('Error fetching or parsing ' + pageName + '.md: ', error);
-            targetElement.innerHTML = '<p>Error loading content. Please try again later.</p>';
+            console.error('Error fetching or parsing about.md: ', error);
+            contentAboutSection.innerHTML = '<p>Error loading content. Please try again later.</p>';
           }
         }
       }
@@ -100,66 +104,61 @@
         navLinks.forEach(link => {
           link.classList.remove('active');
         });
-        const activeLink = document.querySelector(`.nav-link[href="#${activePageName}"]`);
-        if (activeLink) {
-          activeLink.classList.add('active');
+        // Only activate the "About" link in index.html's context
+        if (activePageName === 'about') {
+          // Updated to match the new href for "About"
+          const activeLink = document.querySelector('.nav-link[href="/"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
         }
       }
 
       function applyPageStyles(pageName) {
-        const sectionId = 'content-' + pageName;
-        const activeSection = document.getElementById(sectionId);
-        if (!activeSection) return;
-
-        // Reset styles for all sections first
-        contentSections.forEach(s => {
-          s.style.backgroundColor = ''; // Reset to default or CSS-defined
-          s.style.color = ''; // Reset to default or CSS-defined
-        });
-
-        let bgColor, textColor;
-        switch (pageName) {
-          case 'about':
-            bgColor = '#B056F0'; // Bright purple
-            textColor = '#2E2E2E'; // New text color for better contrast
-            break;
-          case 'speaking':
-            bgColor = '#969C6B'; // Muted olive
-            textColor = '#FFFFFF';
-            break;
-          case 'writing':
-            bgColor = '#936BB0'; // Muted purple
-            textColor = '#FFFFFF';
-            break;
-          case 'teaching': // New colors for Teaching
-            bgColor = '#DEF056'; // Lime
-            textColor = '#434535';
-            break;
-          default:
-            bgColor = '#FFFFFF'; // A neutral default (e.g., white)
-            textColor = '#333333'; // Default text color
+        if (pageName !== 'about' || !contentAboutSection) {
+            // If not 'about', or section not found, do nothing or reset styles
+            if(contentAboutSection) {
+                contentAboutSection.style.backgroundColor = ''; // Reset to default
+                contentAboutSection.style.color = ''; // Reset to default
+            }
+            return;
         }
-        activeSection.style.backgroundColor = bgColor;
-        activeSection.style.color = textColor;
 
-        // Example: If headings within the active section need different color than paragraphs
-        // activeSection.querySelectorAll('h1, h2, h3').forEach(header => header.style.color = textColor);
+        // Apply styles for 'about' page
+        contentAboutSection.style.backgroundColor = '#B056F0'; // Bright purple
+        contentAboutSection.style.color = '#2E2E2E'; // New text color
       }
 
       function handleHashChange() {
-        let pageName = window.location.hash.substring(1);
-        if (!pageName) {
-          pageName = 'about'; // Default page
-          window.location.hash = '#' + pageName; // Update URL hash if empty
-        }
-        loadContent(pageName);
-        updateActiveNavUI(pageName);
-        applyPageStyles(pageName); // Added call to apply styles
+        let currentHash = window.location.hash;
+
+        // Always display 'about' content on index.html
+        // The pageName variable is effectively always 'about' for this page.
+        // No need to change window.location.hash if it's initially empty.
+        // If it's '#about' or some other hash, the content displayed will still be 'about'.
+        // The main goal is to avoid forcing '#about' into the URL if it's not there.
+
+        loadContent('about');
+        updateActiveNavUI('about');
+        applyPageStyles('about');
+
+        // If the hash was something other than #about (e.g. #speaking due to manual typing or old link)
+        // and we want to ensure the URL eventually reflects that only 'about' is shown here,
+        // we could redirect to #about. But the request is to avoid forcing it if it was empty.
+        // If currentHash is not "" and not "#about", we can choose to update it to "#about".
+        // However, for this specific requirement, we will only ensure 'about' content is loaded
+        // and not modify the hash unless strictly necessary for user experience (which it isn't here).
+        // The provided example logic simplifies this by always calling functions with 'about'.
+        // If the hash was, for example, `index.html#speaking`, this page will show "About" content,
+        // and the URL will remain `index.html#speaking` until the user navigates elsewhere.
+        // This is acceptable as per the simplified logic focusing on content and not URL mutation for non-empty, non-"#about" hashes.
       }
 
       window.addEventListener('hashchange', handleHashChange);
 
-      // Initial load handler
+      // Initial load handler:
+      // Call handleHashChange on initial load to display 'about' content.
+      // This will use the logic defined above, which avoids adding '#about' to the URL if it's initially empty.
       handleHashChange();
     });
   </script>

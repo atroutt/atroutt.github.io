@@ -1,4 +1,4 @@
-<img class="feature-image" src="images/audrey_2020_400.png" alt="photo of Audrey">
+<img class="feature-image" src="/images/audrey_2020_400.webp" alt="photo of Audrey">
 
 Audrey Troutt is the Chief Technology Officer at Tomo, where she founded the engineering organization and led the team in building Tomo’s platform from the ground up. Since launching in 2021, she has helped shape a company that is reinventing the home buying experience, creating [the most delightful, no-drama, low-cost mortgage possible](https://tomo.com/).
 
@@ -12,6 +12,6 @@ She holds a Master of Computer and Information Technology degree from the Univer
 
 ## More about Audrey's Early Journey at Tomo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WYq5vHVED_Y?si=xhLAB4Vq9e74I4M9&amp;start=13&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<lite-youtube videoid="WYq5vHVED_Y" videoStartAt="13" style="width:560px;height:315px"></lite-youtube>
 
-This is from the 2022 Philly Emerging Technologies for the Enterprise conference, detailing how Audrey built Tomo's engineering team and platform from the ground up.
+This is from the 2022 Philly Emerging Technologies for the Enterprise conference, on building Tomo's engineering team and platform from the ground up.
