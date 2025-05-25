@@ -22,13 +22,36 @@
   padding: 0;
 }
 
+/*
+  Palette:
+  Lime: #DEF056
+  Muted Purple: #936BB0
+  Muted Olive: #969C6B
+  Bright Purple: #B056F0
+  Medium Gray-Purple: #6A6070
+  Dark Gray-Green: #434535 (for text)
+  Light Gray (for text on dark bg): #D0D0D0 (example, adjust as needed)
+  Neutral Background: #FDFDFD
+*/
+
 body {
   font-family: 'Cabin', serif;
-  color: #444;
+  color: #434535; /* Dark gray/green for default text */
+  background-color: #FDFDFD; /* Neutral background */
+  line-height: 1.6;
+  padding-bottom: 80px; /* For fixed footer */
+  min-height: 100vh; /* Ensure body takes at least full viewport height */
 }
 
+/* General link style - will be overridden in specific contexts like nav, footer, content sections */
 a {
-  color: #000;
+  color: #936BB0; /* Muted purple for general links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #B056F0; /* Bright purple for hover */
+  text-decoration: underline;
 }
 
 ul {
@@ -42,212 +65,229 @@ li {
   margin-left: 1em;
 }
 
+/* Global H1 - primarily for site title */
 h1 {
-  font-family: 'Vollkorn', serif;
+  font-family: 'Lato', sans-serif;
   font-size: 100px;
-  font-weight: 400;
+  font-weight: 700;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 0; /* Adjusted for header padding */
 }
 
+
 @media screen and (max-width: 580px) {
-  h1 {
-    font-size: 30px;
-    font-weight: 400;
+  h1 { /* Site title responsive */
+    font-size: 50px; /* Made slightly larger than previous 30px for impact */
   }
 }
 
-p {
+p { /* Global paragraph style */
   font-size: 18px;
   margin-bottom: 10px;
 }
 
-.header-image {
+/* Feature images used within markdown content */
+.feature-image {
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  max-width: 50%;
+}
+.feature-image-right {
   float: right;
-  padding: 10px;
+  margin-left: 30px;
+  margin-bottom: 10px;
   max-width: 50%;
 }
 
-@media screen and (max-width: 1050px) {
-  .header-image {
-    display: none;
+/* Responsive adjustments for feature images (stacking on small screens) */
+@media screen and (max-width: 580px) {
+  .feature-image,
+  .feature-image-right {
+    float: none;
+    margin-left: auto; /* Center images when stacked */
+    margin-right: auto;
+    margin-bottom: 10px; /* Keep bottom margin */
+    max-width: 100%; /* Allow full width when stacked */
   }
 }
 
 header {
-  height: 287px;
-  background-color: #eee;
+  background-color: #6A6070; /* Medium gray-purple */
+  padding: 10px 20px; /* Reduced top/bottom padding */
+  display: block; /* Ensure children stack vertically */
 }
 
-header p {
-  padding: 10px;
+header h1 { /* Site title in header */
+  color: #DEF056; /* Lime */
+  font-size: 60px; /* Adjusted for new layout */
+  margin-top: 0; /* Tighten spacing */
+  margin-bottom: 0.5em; /* Space between title and tagline */
+  padding-left: 0; /* Reset from global h1 */
 }
 
-@media screen and (max-width: 580px) {
+header p { /* Tagline in header */
+  color: #D0D0D0; /* Light gray for contrast */
+  font-size: 1em; /* Adjusted */
+  padding: 0; /* Reset from global p */
+  margin-top: 0; /* Tighten spacing */
+  margin-bottom: 0.5em; /* Space before nav menu */
+}
+
+@media screen and (max-width: 768px) { /* Responsive adjustments for header */
   header {
-    height: auto;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+  header h1 {
+    font-size: 40px; /* Adjust for smaller screens */
+  }
+  #main-nav {
+    display: flex; /* Enable flex container */
+    flex-wrap: wrap; /* Allow links to wrap to the next line */
+    justify-content: center; /* Center the links */
+    margin-top: 10px; /* Adjusted space between header text and nav */
+    width: 100%; /* Make nav take full width to center its items */
+  }
+  #main-nav a.nav-link {
+    padding: 6px 8px; /* Adjusted padding for mobile */
+    margin: 4px; /* Spacing around each link */
+  }
+  div.content > section > h1 { /* Hide page titles from markdown on mobile */
+    display: none;
   }
 }
 
-.feature-image {
-  float: left;
-  padding: 10px;
-  padding-right: 30px;
-  max-width: 50%;
-}
-
-.feature-image-right {
-  float: right;
-  padding: 10px;
-  max-width: 50%;
-}
-
-@media screen and (max-width: 580px) {
-  .feature-image {
-    float: none;
-    padding: 10px;
-    max-width: 100%;
-  }
-
-  .feature-image-right {
-    float: none;
-    padding: 10px;
-    max-width: 100%;
-  }
-}
 footer {
-  height: 300px;
-  width: 100%;
-  padding: 30px;
-}
-footer ul {
-  float: right;
-  list-style-type: none;
-  padding-left: 0em;
-}
-footer ul li {
-  float:left;
-  list-style: none;
-  margin-left: 0em;
-}
-footer ul li:after { content:"·"; }
-footer ul li:last-child:after { content:""; }
-footer ul li a {
- margin:0 8px; /* Set margins around the links */
-}
-
-/*
-F73C94 # pink
-5DA0B2 # blue
-F68B33 # orange
-93CD4F # green
-8C837C # gray
-*/
-
-* {
-  padding: 0;
-  margin: 0;
-  list-style: disc;
-  box-sizing: border-box;
-  outline: none;
-  font-weight: normal;
-}
-
-.tabs {
-  background: #fff;
-  position: relative;
-}
-
-.tabs > input,
-.tabs > span {
-  width: 25%;
-  height: 60px;
-  line-height: 60px;
-  position: absolute;
-  top: 0;
-}
-
-.tabs > input {
-  cursor: pointer;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  position: absolute;
-  z-index: 99;
-}
-
-.tabs > span {
-  background: #ddd;
-  text-align: center;
-  overflow: hidden;
-}
-
-.tabs > span i,
-.tabs > span {
-  -webkit-transition: all .5s;
-     -moz-transition: all .5s;
-     -o-transition: all .5s;
-      transition: all .5s;
-}
-
-.tabs > input:hover + span {
-  background: rgba(255,255,255,.1);
-}
-
-.tabs > input:checked + span {
-  background: #fff;
-}
-
-.tabs > input:checked + span,
-.tabs > input:hover + span {
-  color: #3498DB;
-}
-
-#tab-1, #tab-1 + span {
+  background-color: #6A6070;
+  padding: 20px;
+  color: #D0D0D0;
+  position: fixed;
   left: 0;
-}
-
-#tab-2, #tab-2 + span {
-  left: 25%;
-}
-
-#tab-3, #tab-3 + span {
-  left: 50%;
-}
-
-#tab-4, #tab-4 + span {
-  left: 75%;
-}
-
-.tab-content {
-  padding: 80px 20px 20px;
+  bottom: 0;
   width: 100%;
-  min-height: 340px;
+  z-index: 1000;
+  text-align: center; /* For centering the ul/buttons */
+}
+footer ul { /* Social media list */
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  display: inline-block; /* To allow centering via text-align on parent */
 }
 
-.tab-content section {
-  width: 100%;
-  display: none;
+footer ul li {
+  display: inline-block; /* Ensure list items are side-by-side */
+  vertical-align: top; /* Align items from the top, useful if heights differ slightly */
+  list-style: none; /* Remove default list styling */
+  margin: 0; /* Spacing is handled by .buttons inside */
+  padding: 0; /* Reset padding */
 }
 
-.tab-content section h1 {
-  margin-top: 15px;
-  font-size: 100px;
-  font-weight: 100;
-  text-align: center;
+footer .buttons {
+  background-color: #DEF056; /* Lime */
+  color: #434535 !important; /* Dark Gray-Green text */
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 5px;
+  display: inline-block;
+  font-weight: bold; */
+  transition: background-color 0.3s ease, color 0.3s ease; */
 }
 
-#tab-1:checked ~ .tab-content #tab-item-1  {
-  display: block;
+/* NEW NAVIGATION STYLES */
+#main-nav {
+  width: 100%; /* Ensure nav container takes full width */
+  display: flex; /* Use flex to align links within */
+  justify-content: flex-end; /* Align links to the right */
+  margin-top: 10px; /* Space above the nav container */
 }
 
-#tab-2:checked ~ .tab-content #tab-item-2  {
-  display: block;
+#main-nav a.nav-link {
+  color: #DEF056; /* Lime */
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-left: 10px; /* For spacing between links */
+  border-radius: 4px; /* Slightly rounded buttons */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#tab-3:checked ~ .tab-content #tab-item-3  {
-  display: block;
+#main-nav a.nav-link:hover {
+  background-color: #434535; /* Dark gray/green, as a hover background */
+  color: #DEF056; /* Lime, text color on hover */
 }
 
-#tab-4:checked ~ .tab-content #tab-item-4  {
-  display: block;
+#main-nav a.nav-link.active {
+  background-color: #B056F0; /* Bright purple, for active link background */
+  color: #2E2E2E; /* New text color for better contrast */
+  font-weight: bold;
+}
+
+
+/* CONTENT SECTION STYLING */
+div.content > section {
+  display: none; /* Hidden by default, JS will show active one */
+  padding: 20px;
+  min-height: 120vh;
+  /* background-color and color are set by JS (applyPageStyles) */
+}
+
+/* Typography within content sections - ensure readability against dynamic backgrounds */
+div.content > section h1,
+div.content > section h2,
+div.content > section h3,
+div.content > section h4,
+div.content > section h5,
+div.content > section h6 {
+  font-family: 'Lato', sans-serif; /* Consistent heading font */
+  color: inherit; /* Inherit color from section (set by JS) */
+  /* margin-top: 1em; */
+  margin-bottom: 0.5em;
+}
+
+div.content > section h1 { font-size: 2.2em; }
+div.content > section h2 { font-size: 1.8em; }
+div.content > section h3 { font-size: 1.5em; }
+
+div.content > section p {
+  color: inherit; /* Inherit color from section (set by JS) */
+  line-height: 1.7; /* Slightly more line height for readability */
+  margin-bottom: 1em;
+}
+
+div.content > section a {
+  color: inherit; /* Inherit color from section (set by JS) */
+  text-decoration: underline; /* Make links clear */
+  font-weight: bold; /* Make links stand out slightly more */
+}
+
+div.content > section a:hover {
+  /* No specific hover color, relies on underline and boldness.
+     Could add a brightness filter or different underline if needed,
+     but hard to pick one color for all dynamic backgrounds. */
+  text-decoration: none; /* Example: remove underline on hover */
+}
+
+div.content > section ul,
+div.content > section ol {
+  color: inherit; /* Inherit color from section (set by JS) */
+  padding-left: 2em; /* Standard padding */
+  margin-bottom: 1em;
+}
+
+div.content > section li {
+  color: inherit; /* Inherit color from section (set by JS) */
+  list-style: inherit; /* Maintain disc/decimal from parent ul/ol */
+  display: list-item;
+  margin-left: 1em; /* Standard margin */
+  line-height: 1.7;
+}
+
+/* Ensure any global styles for ul/li are not overriding section-specific inheritance */
+body > ul, body > ol { /* More specific selector if global ul/li styles were too broad */
+    padding-left: 2em;
+}
+body > li {
+    margin-left: 1em;
 }
