@@ -126,37 +126,9 @@
         contentAboutSection.style.color = '#141414'; // New text color
       }
 
-      function handleHashChange() {
-        let currentHash = window.location.hash;
-
-        // Always display 'about' content on index.html
-        // The pageName variable is effectively always 'about' for this page.
-        // No need to change window.location.hash if it's initially empty.
-        // If it's '#about' or some other hash, the content displayed will still be 'about'.
-        // The main goal is to avoid forcing '#about' into the URL if it's not there.
-
-        loadContent('about');
-        updateActiveNavUI('about');
-        applyPageStyles('about');
-
-        // If the hash was something other than #about (e.g. #speaking due to manual typing or old link)
-        // and we want to ensure the URL eventually reflects that only 'about' is shown here,
-        // we could redirect to #about. But the request is to avoid forcing it if it was empty.
-        // If currentHash is not "" and not "#about", we can choose to update it to "#about".
-        // However, for this specific requirement, we will only ensure 'about' content is loaded
-        // and not modify the hash unless strictly necessary for user experience (which it isn't here).
-        // The provided example logic simplifies this by always calling functions with 'about'.
-        // If the hash was, for example, `index.html#speaking`, this page will show "About" content,
-        // and the URL will remain `index.html#speaking` until the user navigates elsewhere.
-        // This is acceptable as per the simplified logic focusing on content and not URL mutation for non-empty, non-"#about" hashes.
-      }
-
-      window.addEventListener('hashchange', handleHashChange);
-
-      // Initial load handler:
-      // Call handleHashChange on initial load to display 'about' content.
-      // This will use the logic defined above, which avoids adding '#about' to the URL if it's initially empty.
-      handleHashChange();
+      loadContent('about');
+      updateActiveNavUI('about');
+      applyPageStyles('about');
     });
   </script>
   </body>
