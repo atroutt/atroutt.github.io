@@ -22,24 +22,17 @@
       </header>
       <div class="tabs effect-1">
         <!-- tab-title -->
-        <input type="radio" id="tab-1" name="tab" checked="checked">
-        <span href="#tab-item-1">About</span>
-
-        <input type="radio" id="tab-2" name="tab">
-        <span href="#tab-item-2">Speaking</span>
-
-        <input type="radio" id="tab-3" name="tab">
-        <span href="#tab-item-3">Writing</span>
-
-        <input type="radio" id="tab-4" name="tab">
-        <span href="#tab-item-4">Teaching</span>
+        <a href="#about" id="link-about" class="tab-link">About</a>
+        <a href="#speaking" id="link-speaking" class="tab-link">Speaking</a>
+        <a href="#writing" id="link-writing" class="tab-link">Writing</a>
+        <a href="#teaching" id="link-teaching" class="tab-link">Teaching</a>
 
         <!-- tab-content -->
         <div class="tab-content">
-          <section id="tab-item-1"></section>
-          <section id="tab-item-2"></section>
-          <section id="tab-item-3"></section>
-          <section id="tab-item-4"></section>
+          <section id="content-about"></section>
+          <section id="content-speaking"></section>
+          <section id="content-writing"></section>
+          <section id="content-teaching"></section>
         </div>
         <footer>
           <ul>
@@ -65,7 +58,11 @@
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      async function loadContent(markdownFile, targetElementId) {
+      const tabLinks = document.querySelectorAll('.tab-link');
+
+      async function loadContent(tabName) {
+        const markdownFile = tabName;
+        const targetElementId = 'content-' + tabName;
         try {
           const response = await fetch('content/' + markdownFile + '.md');
           if (!response.ok) {
@@ -79,6 +76,12 @@
           const markdownText = await response.text();
           const targetElement = document.getElementById(targetElementId);
           if (targetElement) {
+            // Hide all sections first
+            document.querySelectorAll('.tab-content section').forEach(section => {
+              section.style.display = 'none';
+            });
+            // Display the target section
+            targetElement.style.display = 'block';
             targetElement.innerHTML = marked.parse(markdownText);
           } else {
             console.error('Target element ' + targetElementId + ' not found.');
@@ -92,13 +95,30 @@
         }
       }
 
-      document.getElementById('tab-1').addEventListener('change', () => loadContent('about', 'tab-item-1'));
-      document.getElementById('tab-2').addEventListener('change', () => loadContent('speaking', 'tab-item-2'));
-      document.getElementById('tab-3').addEventListener('change', () => loadContent('writing', 'tab-item-3'));
-      document.getElementById('tab-4').addEventListener('change', () => loadContent('teaching', 'tab-item-4'));
+      function updateActiveTabUI(activeTabName) {
+        tabLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+        const activeLink = document.getElementById('link-' + activeTabName);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
 
-      // Load initial content
-      loadContent('about', 'tab-item-1');
+      function handleHashChange() {
+        let tabName = window.location.hash.substring(1); // Remove #
+        if (!tabName) {
+          tabName = 'about'; // Default tab
+          window.location.hash = '#' + tabName; // Update URL hash
+        }
+        loadContent(tabName);
+        updateActiveTabUI(tabName);
+      }
+
+      window.addEventListener('hashchange', handleHashChange);
+      
+      // Initial load handler
+      handleHashChange(); 
     });
   </script>
   </body>

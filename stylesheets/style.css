@@ -24,11 +24,18 @@
 
 body {
   font-family: 'Cabin', serif;
-  color: #444;
+  color: #333333; /* Dark gray for readability */
+  background-color: #F0F0FA; /* Very light lavender/off-white */
+  line-height: 1.6;
 }
 
 a {
-  color: #000;
+  color: #6A5ACD; /* SlateBlue */
+  text-decoration: none; /* Remove default underline for consistency, can be added back for specific links */
+}
+
+a:hover {
+  color: #483D8B; /* DarkSlateBlue */
 }
 
 ul {
@@ -39,27 +46,44 @@ ul {
 li {
   list-style: disc outside none;
   display: list-item;
-  margin-left: 1em;
+  margin-left: 1em; /* Retain default li styling for markdown content */
 }
 
 h1 {
-  font-family: 'Vollkorn', serif;
-  font-size: 100px;
-  font-weight: 400;
+  font-family: 'Lato', sans-serif;
+  font-size: 100px; /* Keep existing size for now, can be adjusted */
+  font-weight: 700;
   text-align: left;
   padding-left: 10px;
+  color: #483D8B; /* DarkSlateBlue for headings */
 }
+
+/* Headings within content sections */
+.tab-content h1, .tab-content h2, .tab-content h3, .tab-content h4, .tab-content h5, .tab-content h6 {
+  color: #483D8B; /* DarkSlateBlue */
+  font-family: 'Lato', sans-serif; /* Ensure consistent heading font */
+}
+.tab-content h1 { /* Specific styling for h1 in content if needed, e.g. different size */
+    font-size: 2.5em; /* Example size, adjust as needed */
+    margin-bottom: 0.5em;
+}
+.tab-content p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
 
 @media screen and (max-width: 580px) {
   h1 {
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 30px; /* Keep responsive h1 size */
+    font-weight: 700;
   }
 }
 
 p {
   font-size: 18px;
   margin-bottom: 10px;
+  color: #333333; /* Ensure paragraphs also use the body text color */
 }
 
 .header-image {
@@ -76,16 +100,18 @@ p {
 
 header {
   height: 287px;
-  background-color: #eee;
+  background-color: #D8BFD8; /* Thistle - light to medium lavender */
+  color: #333; /* Ensure text contrast */
 }
 
 header p {
   padding: 10px;
+  color: #333; /* Ensure text contrast */
 }
 
 @media screen and (max-width: 580px) {
   header {
-    height: auto;
+    height: auto; /* Retain responsive header height */
   }
 }
 
@@ -116,9 +142,11 @@ header p {
   }
 }
 footer {
-  height: 300px;
+  /* height: 300px; */ /* Let content define height */
   width: 100%;
   padding: 30px;
+  background-color: #D8BFD8; /* Thistle - same as header */
+  color: #333; /* Ensure text contrast */
 }
 footer ul {
   float: right;
@@ -130,11 +158,32 @@ footer ul li {
   list-style: none;
   margin-left: 0em;
 }
-footer ul li:after { content:"·"; }
+footer ul li:after { content:"·"; color: #333; } /* Ensure dot is visible */
 footer ul li:last-child:after { content:""; }
 footer ul li a {
  margin:0 8px; /* Set margins around the links */
+ color: #6A5ACD; /* SlateBlue for footer links */
 }
+footer ul li a:hover {
+ color: #483D8B; /* DarkSlateBlue for footer links hover */
+}
+
+/* Footer Buttons */
+footer .buttons {
+  background-color: #6A5ACD; /* SlateBlue */
+  color: #FFFFFF !important; /* White text, use !important if needed to override */
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-left: 5px; /* Add some spacing if they are next to each other */
+  display: inline-block; /* Ensure padding and styling apply correctly */
+}
+
+footer .buttons:hover {
+  background-color: #483D8B; /* DarkSlateBlue for hover */
+  color: #FFFFFF !important; /* Keep text white on hover */
+}
+
 
 /*
 F73C94 # pink
@@ -144,20 +193,60 @@ F68B33 # orange
 8C837C # gray
 */
 
-* {
+/* Remove general reset for padding/margin for * as it's too broad and handled above more specifically */
+/* * {
   padding: 0;
   margin: 0;
   list-style: disc;
   box-sizing: border-box;
   outline: none;
   font-weight: normal;
-}
+} */
 
 .tabs {
-  background: #fff;
-  position: relative;
+  background: #E6E6FA; /* Lavender - for the tab area */
+  position: relative; /* Keep relative for potential absolute children if any in future */
+  padding: 10px 10px 0 10px; /* Padding around the tab links, no bottom padding initially */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for the tab bar */
+  display: flex; /* Use flexbox for tab alignment */
+  flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
 }
 
+/* NEW Tab Link Styling */
+.tab-link {
+  background: #DCD0FF; /* Pale lavender */
+  color: #483D8B; /* DarkSlateBlue for text */
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px 5px 0 0; /* Slightly rounded top corners */
+  margin-right: 5px; /* Spacing between tabs */
+  /* margin-bottom: -1px; */ /* Removed, active tab border will handle overlap or distinct line */
+  border: 1px solid transparent; 
+  border-bottom: none; /* Inactive tabs have no bottom border or one that matches .tabs bg */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+  position: relative; /* For z-index if needed with active state */
+  z-index: 1;
+}
+
+.tab-link:hover {
+  background: #C8BFE7; /* Slightly darker lavender for hover */
+  color: #3A2D7B; /* Slightly darker text on hover */
+}
+
+.tab-link.active {
+  background: #FFFFFF; /* White, to make it pop */
+  color: #6A5ACD; /* SlateBlue - for active tab text */
+  border-left: 1px solid #D8BFD8; /* Light lavender border on sides */
+  border-right: 1px solid #D8BFD8;
+  border-top: 1px solid #D8BFD8;
+  border-bottom: 2px solid #6A5ACD; /* SlateBlue border to lift it */
+  margin-bottom: -2px; /* Align with the tab content considering the thicker border */
+  z-index: 2; /* Ensure active tab is above others */
+}
+
+/* OLD Tab Styling - To be removed */
+/*
 .tabs > input,
 .tabs > span {
   width: 25%;
@@ -217,25 +306,39 @@ F68B33 # orange
 #tab-4, #tab-4 + span {
   left: 75%;
 }
+*/
 
 .tab-content {
-  padding: 80px 20px 20px;
+  background-color: #FFFFFF; /* White, to clearly separate content */
+  padding: 20px;
   width: 100%;
-  min-height: 340px;
+  min-height: 340px; /* Retain min-height if desired */
+  border: 1px solid #D8BFD8; /* Light lavender border */
+  border-top: none; /* Active tab border should create the top line */
+  clear: both; /* Ensure it clears any floated elements if tabs were floated */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Very subtle shadow */
+  position: relative; /* For positioning context if needed */
+  z-index: 0; /* Ensure content is behind active tab */
 }
 
 .tab-content section {
   width: 100%;
-  display: none;
+  /* display: none; */ /* JavaScript now handles display of sections */
 }
 
+/* Styles for h1 within tab content, if different from global h1 */
 .tab-content section h1 {
   margin-top: 15px;
-  font-size: 100px;
-  font-weight: 100;
-  text-align: center;
+  font-size: 2em; /* Adjusted from 100px as it might be too large for content sections */
+  font-weight: 700; /* Consistent with global h1 */
+  text-align: left; /* Usually content headings are left-aligned */
+  color: #483D8B; /* DarkSlateBlue */
+  padding-left: 0; /* Reset padding from global h1 if not desired here */
 }
 
+
+/* OLD radio-button based content display rules - To be removed */
+/*
 #tab-1:checked ~ .tab-content #tab-item-1  {
   display: block;
 }
@@ -250,4 +353,22 @@ F68B33 # orange
 
 #tab-4:checked ~ .tab-content #tab-item-4  {
   display: block;
+}
+*/
+
+/* Ensure default list styles in markdown content are preserved */
+.tab-content ul {
+  list-style-type: disc;
+  padding-left: 2em; /* Standard padding for unordered lists */
+  margin-bottom: 1em;
+}
+.tab-content ol {
+  list-style-type: decimal;
+  padding-left: 2em; /* Standard padding for ordered lists */
+  margin-bottom: 1em;
+}
+.tab-content li {
+  list-style: inherit; /* Inherit from parent ul/ol */
+  display: list-item;
+  margin-left: 1em; /* Standard margin for list items */
 }
