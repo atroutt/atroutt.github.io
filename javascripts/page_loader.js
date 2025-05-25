@@ -31,11 +31,11 @@ function loadPageSpecificContent(pageName) {
   switch (pageName) {
     case 'speaking':
       bgColor = '#969C6B'; // Muted olive
-      textColor = '#FFFFFF';
+      textColor = '#2E2E2E';
       break;
     case 'writing':
       bgColor = '#936BB0'; // Muted purple
-      textColor = '#FFFFFF';
+      textColor = '#0A0A0A';
       break;
     case 'teaching':
       bgColor = '#DEF056'; // Lime
