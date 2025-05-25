@@ -36,4 +36,4 @@ Recognition by Technical.ly as one of Philadelphia's influential technologists, 
 *   [Pair Exchange Program](https://medium.com/@auditty/pair-exchange-program-6ae3c6d182c0) Blog 2009
 *   [What Every Business Person Needs To Know About Agile Software Development [PDF]](https://www.scrumalliance.org/resource_download/708) White Paper, Ternary Software 2008
 
-<img class="" src="/images/laptop.jpg" alt="photo of my old laptop with stickers all over it">
+<img class="" src="/images/laptop.webp" alt="photo of my old laptop with stickers all over it">
