@@ -91,9 +91,9 @@ p { /* Global paragraph style */
 /* Feature images used within markdown content */
 .feature-image {
   float: left;
-  margin-right: 30px; 
+  margin-right: 30px;
   margin-bottom: 10px;
-  max-width: 50%; 
+  max-width: 50%;
 }
 .feature-image-right {
   float: right;
@@ -121,7 +121,7 @@ p { /* Global paragraph style */
 
 /* Responsive adjustments for feature images (stacking on small screens) */
 @media screen and (max-width: 580px) {
-  .feature-image, 
+  .feature-image,
   .feature-image-right {
     float: none;
     margin-left: auto; /* Center images when stacked */
@@ -199,7 +199,7 @@ footer {
 }
 footer ul { /* Social media list */
   list-style-type: none;
-  padding-left: 0; 
+  padding-left: 0;
   margin: 0;
   display: inline-block; /* To allow centering via text-align on parent */
   /* text-align: center; This was also on footer, so ul being inline-block will be centered by parent */
@@ -215,13 +215,13 @@ footer ul li {
 /*
 footer ul li:after { content:"·"; color: #D0D0D0; margin: 0 5px; }
 footer ul li:last-child:after { content:""; }
-footer ul li a { 
- margin:0; 
- color: #DEF056; 
+footer ul li a {
+ margin:0;
+ color: #DEF056;
  text-decoration: none;
 }
 footer ul li a:hover {
- color: #FFFFFF; 
+ color: #FFFFFF;
  text-decoration: underline;
 }
 */
@@ -271,7 +271,7 @@ footer .buttons {
 div.content > section {
   display: none; /* Hidden by default, JS will show active one */
   padding: 20px;
-  height: 120vh;
+  min-height: 120vh;
   /* background-color and color are set by JS (applyPageStyles) */
 }
 
@@ -305,8 +305,8 @@ div.content > section a {
 }
 
 div.content > section a:hover {
-  /* No specific hover color, relies on underline and boldness. 
-     Could add a brightness filter or different underline if needed, 
+  /* No specific hover color, relies on underline and boldness.
+     Could add a brightness filter or different underline if needed,
      but hard to pick one color for all dynamic backgrounds. */
   text-decoration: none; /* Example: remove underline on hover */
 }
