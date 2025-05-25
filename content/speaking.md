@@ -5,7 +5,7 @@ I am available to speak at tech user groups and conferences. Some of my past top
 For speaking invitations, reach out to me on [LinkedIn](https://www.linkedin.com/in/audreytroutt/).
 
 Past Talks:
-
+*   Learn the Technology with Brandon Krakowsky April 11, 2025 ([video podcast](https://www.youtube.com/watch?v=LhW2SF97-0c))
 *   "Grow Others to Grow Yourself (as an IC)" InfoQ NYC 2023 ([video](https://www.infoq.com/presentations/growing-others-grow-yourself/))
 *   "Building from Zero: Tomo's Engineering Journey" PhillyETE 2022 ([video](https://www.youtube.com/watch?v=WYq5vHVED_Y))
 *   "Grow Others to Grow Yourself: Lessons Learned Going from Tech Lead to Engineering Manager to Director" Comcast CXT Knowledgefest July 2020 ([slides](https://speakerdeck.com/atroutt/grow-others-to-grow-yourself-lessons-learned-going-from-tech-lead-to-engineering-manager-to-director))
