@@ -204,14 +204,17 @@ footer ul { /* Social media list */
   padding-left: 0; 
   margin: 0;
   display: inline-block; /* To allow centering via text-align on parent */
-  /* text-align: center; This was moved to footer for the ul itself if ul is inline-block */
+  /* text-align: center; This was also on footer, so ul being inline-block will be centered by parent */
+}
+
+footer ul li {
+  display: inline-block; /* Ensure list items are side-by-side */
+  vertical-align: top; /* Align items from the top, useful if heights differ slightly */
+  list-style: none; /* Remove default list styling */
+  margin: 0; /* Spacing is handled by .buttons inside */
+  padding: 0; /* Reset padding */
 }
 /*
-footer ul li {
-  float:left; 
-  list-style: none;
-  margin-left: 0em;
-}
 footer ul li:after { content:"·"; color: #D0D0D0; margin: 0 5px; }
 footer ul li:last-child:after { content:""; }
 footer ul li a { 
