@@ -103,7 +103,7 @@ p { /* Global paragraph style */
 header {
   /* height: 287px; Removed fixed height for flexibility */
   background-color: #6A6070; /* Medium gray-purple */
-  padding: 20px;
+  padding: 10px 20px; /* Reduced top/bottom padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,7 +117,8 @@ header .header-text-container { /* Wrapper for h1 and p in header */
 header h1 { /* Site title in header */
   color: #DEF056; /* Lime */
   font-size: 60px; /* Adjusted for new layout */
-  margin-bottom: 5px; /* Space between title and tagline */
+  margin-top: 0; /* Tighten spacing */
+  margin-bottom: 0.5em; /* Space between title and tagline */
   padding-left: 0; /* Reset from global h1 */
 }
 
@@ -125,7 +126,8 @@ header p { /* Tagline in header */
   color: #D0D0D0; /* Light gray for contrast */
   font-size: 1em; /* Adjusted */
   padding: 0; /* Reset from global p */
-  margin-bottom: 0; /* Reset */
+  margin-top: 0; /* Tighten spacing */
+  margin-bottom: 0.5em; /* Space before nav menu */
   max-width: 600px; /* Constrain width of tagline */
 }
 
@@ -138,14 +140,20 @@ header p { /* Tagline in header */
     font-size: 40px; /* Adjust for smaller screens */
   }
   #main-nav {
-    margin-top: 15px; /* Add space between header text and nav */
-    width: 100%; /* Make nav take full width */
+    display: flex; /* Enable flex container */
+    flex-wrap: wrap; /* Allow links to wrap to the next line */
+    justify-content: center; /* Center the links */
+    margin-top: 10px; /* Adjusted space between header text and nav */
+    width: 100%; /* Make nav take full width to center its items */
   }
   #main-nav a.nav-link {
-    display: block; /* Stack nav links */
-    margin-left: 0;
-    margin-bottom: 5px; /* Space between stacked links */
-    text-align: center; /* Center text for stacked links */
+    /* display: block; Removed to allow side-by-side */
+    /* margin-left: 0; Removed */
+    /* margin-bottom: 5px; Removed */
+    /* text-align: center; Removed as links are no longer block full-width */
+    padding: 6px 8px; /* Adjusted padding for mobile */
+    margin: 4px; /* Spacing around each link */
+    /* font-size: 0.9em; /* Optional: if text size needs slight reduction - keeping default for now */
   }
 }
 
@@ -214,9 +222,14 @@ footer .buttons {
   border-radius: 4px;
   text-decoration: none;
   margin: 5px; /* Spacing around buttons */
-  display: inline-block;
+  display: inline-flex; /* Use inline-flex for alignment */
+  align-items: center; /* Vertically align icon and text */
   font-weight: bold;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer .buttons i {
+  margin-right: 5px; /* Space between icon and text */
 }
 
 footer .buttons:hover {
