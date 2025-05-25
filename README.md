@@ -3,17 +3,13 @@
 Personal website of Audrey Troutt, an accomplished hands-on technology leader. This site showcases her experience, speaking engagements, writings, and teaching activities.
 
 ## Running the App
-Look, this is my personal portfolio site. Why would *you* want to run it? Are you me? If so, hi Audrey! Here's the most basic ai-generated instructions for how to pull down a repo and load it in case you (I?) forgot:
+Look, this is my personal portfolio site. Why would *you* want to run it? Are you me? If so, hi Audrey! Here's the most basic ai-generated instructions for how to run and load it in case you (I?) forgot:
 
-1. Clone this repository to your local machine:
-   ```bash
-   git clone https://github.com/atroutt/atroutt.github.io.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd atroutt.github.io
-   ```
-3. Open the `index.html` file in your preferred web browser.
+1. Run the command:
+    ```bash
+    python3 -m http.server
+    ```
+2.  Open your web browser and go to `http://localhost:8000`
 
 If you're NOT Audrey, seriously, there are probably more interesting things to do. Like watching paint dry. Or learning interpretive dance.
 
@@ -36,15 +32,3 @@ As this is a simple static website, testing is primarily manual:
     - For JavaScript, [ESLint](https://eslint.org/) or [JSHint](https://jshint.com/) are popular choices.
 
 If you're not me and you actually did all this, let me know if something's broken!
-
-## Running Locally
-
-To run this website locally:
-
-1.  Open your terminal.
-2.  Navigate to the root directory of this project.
-3.  Run the command:
-    ```bash
-    python3 -m http.server
-    ```
-4.  Open your web browser and go to `http://localhost:8000`.

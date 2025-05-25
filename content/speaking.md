@@ -1,4 +1,3 @@
-# Speaking
 
 <img class="feature-image-right" src="images/scna2.jpg" alt="photo of Audrey speaking at Software as a craft, North America in 2016">
 
