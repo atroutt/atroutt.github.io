@@ -155,8 +155,6 @@ header p { /* Tagline in header */
   padding: 0; /* Reset from global p */
   margin-top: 0; /* Tighten spacing */
   margin-bottom: 0.5em; /* Space before nav menu */
-  max-width: 600px; /* Constrain width of tagline */
-  /* width: 100%; Not strictly needed as p is block by default */
 }
 
 @media screen and (max-width: 768px) { /* Responsive adjustments for header */
@@ -228,97 +226,20 @@ footer ul li a:hover {
 }
 */
 
-/* Footer Buttons (specific for GitHub, SpeakerDeck etc. if they use .buttons class) */
 footer .buttons {
   background-color: #DEF056; /* Lime */
   color: #434535 !important; /* Dark Gray-Green text */
   padding: 8px 15px;
   border-radius: 4px;
   text-decoration: none;
-  margin: 0 5px; /* Spacing around buttons */
-  display: inline-block; 
-  /* font-weight: bold; */ /* Removed as not in explicit restore instructions */
-  /* transition: background-color 0.3s ease, color 0.3s ease; */ /* Removed as not in explicit restore instructions */
-}
-
-/* footer .buttons i { Removed rule for icon spacing } */
-
-/* footer .buttons:hover { Removed as not in explicit restore instructions } */
-
-
-/* OLD LAVENDER THEME & TAB STYLES - TO BE REMOVED/COMMENTED */
-/*
-.tabs {
-  background: #E6E6FA;
-  position: relative;
-  padding: 10px 10px 0 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tab-link {
-  background: #DCD0FF;
-  color: #483D8B;
-  padding: 10px 15px;
-  text-decoration: none;
+  margin: 5px;
   display: inline-block;
-  border-radius: 5px 5px 0 0;
-  margin-right: 5px;
-  border: 1px solid transparent; 
-  border-bottom: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  position: relative;
-  z-index: 1;
+  font-weight: bold; */
+  transition: background-color 0.3s ease, color 0.3s ease; */
 }
-
-.tab-link:hover {
-  background: #C8BFE7;
-  color: #3A2D7B;
-}
-
-.tab-link.active {
-  background: #FFFFFF;
-  color: #6A5ACD;
-  border-left: 1px solid #D8BFD8;
-  border-right: 1px solid #D8BFD8;
-  border-top: 1px solid #D8BFD8;
-  border-bottom: 2px solid #6A5ACD;
-  margin-bottom: -2px;
-  z-index: 2;
-}
-
-.tab-content {
-  background-color: #FFFFFF;
-  padding: 20px;
-  width: 100%;
-  min-height: 340px;
-  border: 1px solid #D8BFD8;
-  border-top: none;
-  clear: both;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  position: relative;
-  z-index: 0;
-}
-
-.tab-content section {
-  width: 100%;
-}
-
-.tab-content section h1 {
-  margin-top: 15px;
-  font-size: 2em;
-  font-weight: 700;
-  text-align: left;
-  color: #483D8B;
-  padding-left: 0;
-}
-.tab-content ul, .tab-content ol, .tab-content li removed, covered by global and content section styles
-*/
 
 /* NEW NAVIGATION STYLES */
 #main-nav {
-  /* margin-left: auto; Removed, as header is no longer flex */
   width: 100%; /* Ensure nav container takes full width */
   display: flex; /* Use flex to align links within */
   justify-content: flex-end; /* Align links to the right */
@@ -350,6 +271,7 @@ footer .buttons {
 div.content > section {
   display: none; /* Hidden by default, JS will show active one */
   padding: 20px;
+  height: 120vh;
   /* background-color and color are set by JS (applyPageStyles) */
 }
 
@@ -362,7 +284,7 @@ div.content > section h5,
 div.content > section h6 {
   font-family: 'Lato', sans-serif; /* Consistent heading font */
   color: inherit; /* Inherit color from section (set by JS) */
-  margin-top: 1em;
+  /* margin-top: 1em; */
   margin-bottom: 0.5em;
 }
 
