@@ -128,29 +128,35 @@
       }
 
       function handleHashChange() {
-        let pageName = window.location.hash.substring(1);
+        let currentHash = window.location.hash;
 
-        // Default to 'about' if hash is empty, '#about', or unrecognized
-        if (pageName !== 'speaking' && pageName !== 'writing' && pageName !== 'teaching') {
-            // The above check is to ensure that if a user manually types #speaking, index.html doesn't try to load it.
-            // However, the task is to make index.html *only* serve 'about'.
-            // So, we simplify: any hash not explicitly handled by other pages should default to 'about' on index.html.
-            // For the current setup, index.html *is* the 'about' page.
-            pageName = 'about';
-            window.location.hash = '#about'; // Ensure URL reflects the 'about' state
-        }
-         
-        // If the hash points to a different page (e.g. #speaking), this script should not load 'about'.
-        // However, the requirement is index.html *only* displays "About".
-        // So, we force 'about' content.
+        // Always display 'about' content on index.html
+        // The pageName variable is effectively always 'about' for this page.
+        // No need to change window.location.hash if it's initially empty.
+        // If it's '#about' or some other hash, the content displayed will still be 'about'.
+        // The main goal is to avoid forcing '#about' into the URL if it's not there.
+
         loadContent('about');
         updateActiveNavUI('about');
         applyPageStyles('about');
+
+        // If the hash was something other than #about (e.g. #speaking due to manual typing or old link)
+        // and we want to ensure the URL eventually reflects that only 'about' is shown here,
+        // we could redirect to #about. But the request is to avoid forcing it if it was empty.
+        // If currentHash is not "" and not "#about", we can choose to update it to "#about".
+        // However, for this specific requirement, we will only ensure 'about' content is loaded
+        // and not modify the hash unless strictly necessary for user experience (which it isn't here).
+        // The provided example logic simplifies this by always calling functions with 'about'.
+        // If the hash was, for example, `index.html#speaking`, this page will show "About" content,
+        // and the URL will remain `index.html#speaking` until the user navigates elsewhere.
+        // This is acceptable as per the simplified logic focusing on content and not URL mutation for non-empty, non-"#about" hashes.
       }
 
       window.addEventListener('hashchange', handleHashChange);
 
-      // Initial load handler
+      // Initial load handler:
+      // Call handleHashChange on initial load to display 'about' content.
+      // This will use the logic defined above, which avoids adding '#about' to the URL if it's initially empty.
       handleHashChange();
     });
   </script>
