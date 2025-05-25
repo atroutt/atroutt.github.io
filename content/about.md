@@ -1,4 +1,4 @@
-<img class="feature-image" src="/images/audrey_2020_400.webp" alt="photo of Audrey">
+<img class="feature-image" src="/images/audrey_2020_400.webp" style="max-height:390px" alt="photo of Audrey">
 
 Audrey Troutt is the Chief Technology Officer at Tomo, where she founded the engineering organization and led the team in building Tomo’s platform from the ground up. Since launching in 2021, she has helped shape a company that is reinventing the home buying experience, creating [the most delightful, no-drama, low-cost mortgage possible](https://tomo.com/).
 
