@@ -19,30 +19,28 @@
       <header>
         <h1>Audrey Troutt</h1>
         <p>Accomplished hands-on technology leader with over fifteen years of experience that includes engineering leadership and hands on development of Android, iOS, and web-based products as well as APIs and data pipelines. Builder of healthy and efficient engineering cultures. Tech community leader and advocate.</p>
+        <nav id="main-nav">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#speaking" class="nav-link">Speaking</a>
+          <a href="#writing" class="nav-link">Writing</a>
+          <a href="#teaching" class="nav-link">Teaching</a>
+        </nav>
       </header>
-      <div class="tabs effect-1">
-        <!-- tab-title -->
-        <a href="#about" id="link-about" class="tab-link">About</a>
-        <a href="#speaking" id="link-speaking" class="tab-link">Speaking</a>
-        <a href="#writing" id="link-writing" class="tab-link">Writing</a>
-        <a href="#teaching" id="link-teaching" class="tab-link">Teaching</a>
-
-        <!-- tab-content -->
-        <div class="tab-content">
-          <section id="content-about"></section>
-          <section id="content-speaking"></section>
-          <section id="content-writing"></section>
-          <section id="content-teaching"></section>
-        </div>
-        <footer>
-          <ul>
-            <li><a class="buttons github" href="https://github.com/atroutt">GitHub</a></li>
+      <!-- Content sections are now direct children of div.content -->
+      <section id="content-about"></section>
+      <section id="content-speaking"></section>
+      <section id="content-writing"></section>
+      <section id="content-teaching"></section>
+      <footer>
+        <ul>
+          <li><a class="buttons github" href="https://github.com/atroutt">GitHub</a></li>
             <li><a class="buttons speakerdeck" href="https://speakerdeck.com/atroutt/">Speaker Deck</a></li>
             <li><a class="buttons linkedin" href="http://www.linkedin.com/in/audreytroutt">LinkedIn</a></li>
             <li><a class="buttons twitter" href="https://twitter.com/auditty">Twitter</a></li>
             <li><a class="buttons news" href="https://technical.ly/?s=audrey+troutt">News</a></li>
           </ul>
         </footer>
+    <!-- The div.content closing tag was here, it should remain to wrap header, sections, and footer -->
     </div>
     <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -58,61 +56,104 @@
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const tabLinks = document.querySelectorAll('.tab-link');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const contentSections = document.querySelectorAll('div.content > section');
 
-      async function loadContent(tabName) {
-        const markdownFile = tabName;
-        const targetElementId = 'content-' + tabName;
-        try {
-          const response = await fetch('content/' + markdownFile + '.md');
-          if (!response.ok) {
-            console.error('Failed to load ' + markdownFile + '.md: ' + response.statusText);
-            const targetElement = document.getElementById(targetElementId);
-            if (targetElement) {
+      async function loadContent(pageName) {
+        const targetElementId = 'content-' + pageName;
+        const targetElement = document.getElementById(targetElementId);
+
+        if (!targetElement) {
+          console.error('Target element ' + targetElementId + ' not found.');
+          return;
+        }
+
+        // Hide all content sections first
+        contentSections.forEach(section => {
+          section.style.display = 'none';
+        });
+        
+        // Show the target section
+        targetElement.style.display = 'block';
+
+        // Load content if it hasn't been loaded yet (simple check to prevent re-fetching)
+        if (!targetElement.dataset.loaded) {
+          try {
+            const response = await fetch('content/' + pageName + '.md');
+            if (!response.ok) {
+              console.error('Failed to load ' + pageName + '.md: ' + response.statusText);
               targetElement.innerHTML = '<p>Error loading content. Please try again later.</p>';
+              return;
             }
-            return;
-          }
-          const markdownText = await response.text();
-          const targetElement = document.getElementById(targetElementId);
-          if (targetElement) {
-            // Hide all sections first
-            document.querySelectorAll('.tab-content section').forEach(section => {
-              section.style.display = 'none';
-            });
-            // Display the target section
-            targetElement.style.display = 'block';
+            const markdownText = await response.text();
             targetElement.innerHTML = marked.parse(markdownText);
-          } else {
-            console.error('Target element ' + targetElementId + ' not found.');
-          }
-        } catch (error) {
-          console.error('Error fetching or parsing ' + markdownFile + '.md: ', error);
-          const targetElement = document.getElementById(targetElementId);
-          if (targetElement) {
+            targetElement.dataset.loaded = true; // Mark as loaded
+          } catch (error) {
+            console.error('Error fetching or parsing ' + pageName + '.md: ', error);
             targetElement.innerHTML = '<p>Error loading content. Please try again later.</p>';
           }
         }
       }
 
-      function updateActiveTabUI(activeTabName) {
-        tabLinks.forEach(link => {
+      function updateActiveNavUI(activePageName) {
+        navLinks.forEach(link => {
           link.classList.remove('active');
         });
-        const activeLink = document.getElementById('link-' + activeTabName);
+        const activeLink = document.querySelector(`.nav-link[href="#${activePageName}"]`);
         if (activeLink) {
           activeLink.classList.add('active');
         }
       }
 
-      function handleHashChange() {
-        let tabName = window.location.hash.substring(1); // Remove #
-        if (!tabName) {
-          tabName = 'about'; // Default tab
-          window.location.hash = '#' + tabName; // Update URL hash
+      function applyPageStyles(pageName) {
+        const sectionId = 'content-' + pageName;
+        const activeSection = document.getElementById(sectionId);
+        if (!activeSection) return;
+
+        // Reset styles for all sections first
+        contentSections.forEach(s => {
+          s.style.backgroundColor = ''; // Reset to default or CSS-defined
+          s.style.color = ''; // Reset to default or CSS-defined
+        });
+
+        let bgColor, textColor;
+        switch (pageName) {
+          case 'about':
+            bgColor = '#DEF056'; // lime
+            textColor = '#434535';
+            break;
+          case 'speaking':
+            bgColor = '#936BB0'; // muted purple
+            textColor = '#FFFFFF'; 
+            break;
+          case 'writing':
+            bgColor = '#969C6B'; // muted olive
+            textColor = '#FFFFFF'; 
+            break;
+          case 'teaching':
+            bgColor = '#B056F0'; // bright purple
+            textColor = '#FFFFFF'; 
+            break;
+          default:
+            bgColor = '#FFFFFF'; // A neutral default (e.g., white)
+            textColor = '#333333'; // Default text color
         }
-        loadContent(tabName);
-        updateActiveTabUI(tabName);
+        activeSection.style.backgroundColor = bgColor;
+        activeSection.style.color = textColor;
+
+        // Example: If headings within the active section need different color than paragraphs
+        // activeSection.querySelectorAll('h1, h2, h3').forEach(header => header.style.color = textColor);
+      }
+
+      function handleHashChange() {
+        let pageName = window.location.hash.substring(1);
+        if (!pageName) {
+          pageName = 'about'; // Default page
+          window.location.hash = '#' + pageName; // Update URL hash if empty
+        }
+        loadContent(pageName);
+        updateActiveNavUI(pageName);
+        applyPageStyles(pageName); // Added call to apply styles
       }
 
       window.addEventListener('hashchange', handleHashChange);

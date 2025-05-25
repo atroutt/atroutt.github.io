@@ -22,20 +22,34 @@
   padding: 0;
 }
 
+/*
+  Palette:
+  Lime: #DEF056
+  Muted Purple: #936BB0
+  Muted Olive: #969C6B
+  Bright Purple: #B056F0
+  Medium Gray-Purple: #6A6070
+  Dark Gray-Green: #434535 (for text)
+  Light Gray (for text on dark bg): #D0D0D0 (example, adjust as needed)
+  Neutral Background: #FDFDFD
+*/
+
 body {
   font-family: 'Cabin', serif;
-  color: #333333; /* Dark gray for readability */
-  background-color: #F0F0FA; /* Very light lavender/off-white */
+  color: #434535; /* Dark gray/green for default text */
+  background-color: #FDFDFD; /* Neutral background */
   line-height: 1.6;
 }
 
+/* General link style - will be overridden in specific contexts like nav, footer, content sections */
 a {
-  color: #6A5ACD; /* SlateBlue */
-  text-decoration: none; /* Remove default underline for consistency, can be added back for specific links */
+  color: #936BB0; /* Muted purple for general links */
+  text-decoration: none;
 }
 
 a:hover {
-  color: #483D8B; /* DarkSlateBlue */
+  color: #B056F0; /* Bright purple for hover */
+  text-decoration: underline;
 }
 
 ul {
@@ -46,47 +60,33 @@ ul {
 li {
   list-style: disc outside none;
   display: list-item;
-  margin-left: 1em; /* Retain default li styling for markdown content */
+  margin-left: 1em;
 }
 
+/* Global H1 - primarily for site title */
 h1 {
   font-family: 'Lato', sans-serif;
-  font-size: 100px; /* Keep existing size for now, can be adjusted */
+  font-size: 100px;
   font-weight: 700;
   text-align: left;
-  padding-left: 10px;
-  color: #483D8B; /* DarkSlateBlue for headings */
-}
-
-/* Headings within content sections */
-.tab-content h1, .tab-content h2, .tab-content h3, .tab-content h4, .tab-content h5, .tab-content h6 {
-  color: #483D8B; /* DarkSlateBlue */
-  font-family: 'Lato', sans-serif; /* Ensure consistent heading font */
-}
-.tab-content h1 { /* Specific styling for h1 in content if needed, e.g. different size */
-    font-size: 2.5em; /* Example size, adjust as needed */
-    margin-bottom: 0.5em;
-}
-.tab-content p {
-    line-height: 1.6;
-    margin-bottom: 1em;
+  padding-left: 0; /* Adjusted for header padding */
+  /* color: #434535; Default, overridden in header */
 }
 
 
 @media screen and (max-width: 580px) {
-  h1 {
-    font-size: 30px; /* Keep responsive h1 size */
-    font-weight: 700;
+  h1 { /* Site title responsive */
+    font-size: 50px; /* Made slightly larger than previous 30px for impact */
   }
 }
 
-p {
+p { /* Global paragraph style */
   font-size: 18px;
   margin-bottom: 10px;
-  color: #333333; /* Ensure paragraphs also use the body text color */
+  /* color: #434535; Inherits from body */
 }
 
-.header-image {
+.header-image { /* Preserved if used elsewhere, though not in current header structure */
   float: right;
   padding: 10px;
   max-width: 50%;
@@ -99,276 +99,285 @@ p {
 }
 
 header {
-  height: 287px;
-  background-color: #D8BFD8; /* Thistle - light to medium lavender */
-  color: #333; /* Ensure text contrast */
+  /* height: 287px; Removed fixed height for flexibility */
+  background-color: #6A6070; /* Medium gray-purple */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
-header p {
-  padding: 10px;
-  color: #333; /* Ensure text contrast */
+header .header-text-container { /* Wrapper for h1 and p in header */
+  flex-grow: 1; /* Allows it to take available space */
 }
 
-@media screen and (max-width: 580px) {
+header h1 { /* Site title in header */
+  color: #DEF056; /* Lime */
+  font-size: 60px; /* Adjusted for new layout */
+  margin-bottom: 5px; /* Space between title and tagline */
+  padding-left: 0; /* Reset from global h1 */
+}
+
+header p { /* Tagline in header */
+  color: #D0D0D0; /* Light gray for contrast */
+  font-size: 1em; /* Adjusted */
+  padding: 0; /* Reset from global p */
+  margin-bottom: 0; /* Reset */
+  max-width: 600px; /* Constrain width of tagline */
+}
+
+@media screen and (max-width: 768px) { /* Responsive adjustments for header */
   header {
-    height: auto; /* Retain responsive header height */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+  header h1 {
+    font-size: 40px; /* Adjust for smaller screens */
+  }
+  #main-nav {
+    margin-top: 15px; /* Add space between header text and nav */
+    width: 100%; /* Make nav take full width */
+  }
+  #main-nav a.nav-link {
+    display: block; /* Stack nav links */
+    margin-left: 0;
+    margin-bottom: 5px; /* Space between stacked links */
+    text-align: center; /* Center text for stacked links */
   }
 }
 
-.feature-image {
+
+.feature-image { /* Preserved if used elsewhere */
   float: left;
   padding: 10px;
   padding-right: 30px;
   max-width: 50%;
 }
 
-.feature-image-right {
+.feature-image-right { /* Preserved if used elsewhere */
   float: right;
   padding: 10px;
   max-width: 50%;
 }
 
 @media screen and (max-width: 580px) {
-  .feature-image {
+  .feature-image, .feature-image-right { /* Preserved if used elsewhere */
     float: none;
     padding: 10px;
     max-width: 100%;
   }
+}
 
-  .feature-image-right {
-    float: none;
-    padding: 10px;
-    max-width: 100%;
-  }
-}
 footer {
-  /* height: 300px; */ /* Let content define height */
   width: 100%;
-  padding: 30px;
-  background-color: #D8BFD8; /* Thistle - same as header */
-  color: #333; /* Ensure text contrast */
+  padding: 20px;
+  background-color: #6A6070; /* Medium gray-purple */
+  color: #D0D0D0; /* Light gray for footer text */
+  text-align: center; /* Center footer content */
 }
-footer ul {
-  float: right;
+footer ul { /* Social media list */
+  /* float: right; Removed float for centered layout */
+  display: inline-block; /* Allows centering with text-align on parent */
   list-style-type: none;
   padding-left: 0em;
+  margin: 0;
 }
 footer ul li {
-  float:left;
+  float:left; /* Keep them inline */
   list-style: none;
   margin-left: 0em;
 }
-footer ul li:after { content:"·"; color: #333; } /* Ensure dot is visible */
+footer ul li:after { content:"·"; color: #D0D0D0; margin: 0 5px; }
 footer ul li:last-child:after { content:""; }
-footer ul li a {
- margin:0 8px; /* Set margins around the links */
- color: #6A5ACD; /* SlateBlue for footer links */
+footer ul li a { /* General links in footer list items */
+ margin:0; /* Reset */
+ color: #DEF056; /* Lime */
+ text-decoration: none;
 }
 footer ul li a:hover {
- color: #483D8B; /* DarkSlateBlue for footer links hover */
+ color: #FFFFFF; /* White on hover */
+ text-decoration: underline;
 }
 
-/* Footer Buttons */
+/* Footer Buttons (specific for GitHub, SpeakerDeck etc. if they use .buttons class) */
 footer .buttons {
-  background-color: #6A5ACD; /* SlateBlue */
-  color: #FFFFFF !important; /* White text, use !important if needed to override */
+  background-color: #DEF056; /* Lime */
+  color: #434535 !important; /* Dark Gray-Green text */
   padding: 8px 15px;
   border-radius: 4px;
   text-decoration: none;
-  margin-left: 5px; /* Add some spacing if they are next to each other */
-  display: inline-block; /* Ensure padding and styling apply correctly */
+  margin: 5px; /* Spacing around buttons */
+  display: inline-block;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 footer .buttons:hover {
-  background-color: #483D8B; /* DarkSlateBlue for hover */
-  color: #FFFFFF !important; /* Keep text white on hover */
+  background-color: #434535; /* Dark Gray-Green */
+  color: #DEF056 !important; /* Lime text */
 }
 
 
+/* OLD LAVENDER THEME & TAB STYLES - TO BE REMOVED/COMMENTED */
 /*
-F73C94 # pink
-5DA0B2 # blue
-F68B33 # orange
-93CD4F # green
-8C837C # gray
-*/
-
-/* Remove general reset for padding/margin for * as it's too broad and handled above more specifically */
-/* * {
-  padding: 0;
-  margin: 0;
-  list-style: disc;
-  box-sizing: border-box;
-  outline: none;
-  font-weight: normal;
-} */
-
 .tabs {
-  background: #E6E6FA; /* Lavender - for the tab area */
-  position: relative; /* Keep relative for potential absolute children if any in future */
-  padding: 10px 10px 0 10px; /* Padding around the tab links, no bottom padding initially */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for the tab bar */
-  display: flex; /* Use flexbox for tab alignment */
-  flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+  background: #E6E6FA;
+  position: relative;
+  padding: 10px 10px 0 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* NEW Tab Link Styling */
 .tab-link {
-  background: #DCD0FF; /* Pale lavender */
-  color: #483D8B; /* DarkSlateBlue for text */
+  background: #DCD0FF;
+  color: #483D8B;
   padding: 10px 15px;
   text-decoration: none;
   display: inline-block;
-  border-radius: 5px 5px 0 0; /* Slightly rounded top corners */
-  margin-right: 5px; /* Spacing between tabs */
-  /* margin-bottom: -1px; */ /* Removed, active tab border will handle overlap or distinct line */
+  border-radius: 5px 5px 0 0;
+  margin-right: 5px;
   border: 1px solid transparent; 
-  border-bottom: none; /* Inactive tabs have no bottom border or one that matches .tabs bg */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-  position: relative; /* For z-index if needed with active state */
+  border-bottom: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
   z-index: 1;
 }
 
 .tab-link:hover {
-  background: #C8BFE7; /* Slightly darker lavender for hover */
-  color: #3A2D7B; /* Slightly darker text on hover */
+  background: #C8BFE7;
+  color: #3A2D7B;
 }
 
 .tab-link.active {
-  background: #FFFFFF; /* White, to make it pop */
-  color: #6A5ACD; /* SlateBlue - for active tab text */
-  border-left: 1px solid #D8BFD8; /* Light lavender border on sides */
+  background: #FFFFFF;
+  color: #6A5ACD;
+  border-left: 1px solid #D8BFD8;
   border-right: 1px solid #D8BFD8;
   border-top: 1px solid #D8BFD8;
-  border-bottom: 2px solid #6A5ACD; /* SlateBlue border to lift it */
-  margin-bottom: -2px; /* Align with the tab content considering the thicker border */
-  z-index: 2; /* Ensure active tab is above others */
+  border-bottom: 2px solid #6A5ACD;
+  margin-bottom: -2px;
+  z-index: 2;
 }
-
-/* OLD Tab Styling - To be removed */
-/*
-.tabs > input,
-.tabs > span {
-  width: 25%;
-  height: 60px;
-  line-height: 60px;
-  position: absolute;
-  top: 0;
-}
-
-.tabs > input {
-  cursor: pointer;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  position: absolute;
-  z-index: 99;
-}
-
-.tabs > span {
-  background: #ddd;
-  text-align: center;
-  overflow: hidden;
-}
-
-.tabs > span i,
-.tabs > span {
-  -webkit-transition: all .5s;
-     -moz-transition: all .5s;
-     -o-transition: all .5s;
-      transition: all .5s;
-}
-
-.tabs > input:hover + span {
-  background: rgba(255,255,255,.1);
-}
-
-.tabs > input:checked + span {
-  background: #fff;
-}
-
-.tabs > input:checked + span,
-.tabs > input:hover + span {
-  color: #3498DB;
-}
-
-#tab-1, #tab-1 + span {
-  left: 0;
-}
-
-#tab-2, #tab-2 + span {
-  left: 25%;
-}
-
-#tab-3, #tab-3 + span {
-  left: 50%;
-}
-
-#tab-4, #tab-4 + span {
-  left: 75%;
-}
-*/
 
 .tab-content {
-  background-color: #FFFFFF; /* White, to clearly separate content */
+  background-color: #FFFFFF;
   padding: 20px;
   width: 100%;
-  min-height: 340px; /* Retain min-height if desired */
-  border: 1px solid #D8BFD8; /* Light lavender border */
-  border-top: none; /* Active tab border should create the top line */
-  clear: both; /* Ensure it clears any floated elements if tabs were floated */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Very subtle shadow */
-  position: relative; /* For positioning context if needed */
-  z-index: 0; /* Ensure content is behind active tab */
+  min-height: 340px;
+  border: 1px solid #D8BFD8;
+  border-top: none;
+  clear: both;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 0;
 }
 
 .tab-content section {
   width: 100%;
-  /* display: none; */ /* JavaScript now handles display of sections */
 }
 
-/* Styles for h1 within tab content, if different from global h1 */
 .tab-content section h1 {
   margin-top: 15px;
-  font-size: 2em; /* Adjusted from 100px as it might be too large for content sections */
-  font-weight: 700; /* Consistent with global h1 */
-  text-align: left; /* Usually content headings are left-aligned */
-  color: #483D8B; /* DarkSlateBlue */
-  padding-left: 0; /* Reset padding from global h1 if not desired here */
+  font-size: 2em;
+  font-weight: 700;
+  text-align: left;
+  color: #483D8B;
+  padding-left: 0;
 }
-
-
-/* OLD radio-button based content display rules - To be removed */
-/*
-#tab-1:checked ~ .tab-content #tab-item-1  {
-  display: block;
-}
-
-#tab-2:checked ~ .tab-content #tab-item-2  {
-  display: block;
-}
-
-#tab-3:checked ~ .tab-content #tab-item-3  {
-  display: block;
-}
-
-#tab-4:checked ~ .tab-content #tab-item-4  {
-  display: block;
-}
+.tab-content ul, .tab-content ol, .tab-content li removed, covered by global and content section styles
 */
 
-/* Ensure default list styles in markdown content are preserved */
-.tab-content ul {
-  list-style-type: disc;
-  padding-left: 2em; /* Standard padding for unordered lists */
+/* NEW NAVIGATION STYLES */
+#main-nav {
+  /* float: right; Removed, using flexbox on header */
+  margin-left: auto; /* Pushes nav to the right when header is flex container */
+}
+
+#main-nav a.nav-link {
+  color: #DEF056; /* Lime */
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-left: 10px; /* For spacing between links */
+  border-radius: 4px; /* Slightly rounded buttons */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#main-nav a.nav-link:hover {
+  background-color: #434535; /* Dark gray/green, as a hover background */
+  color: #DEF056; /* Lime, text color on hover */
+}
+
+#main-nav a.nav-link.active {
+  background-color: #B056F0; /* Bright purple, for active link background */
+  color: #FFFFFF; /* White for active link text */
+  font-weight: bold;
+}
+
+
+/* CONTENT SECTION STYLING */
+div.content > section {
+  display: none; /* Hidden by default, JS will show active one */
+  padding: 20px;
+  /* background-color and color are set by JS (applyPageStyles) */
+}
+
+/* Typography within content sections - ensure readability against dynamic backgrounds */
+div.content > section h1,
+div.content > section h2,
+div.content > section h3,
+div.content > section h4,
+div.content > section h5,
+div.content > section h6 {
+  font-family: 'Lato', sans-serif; /* Consistent heading font */
+  color: inherit; /* Inherit color from section (set by JS) */
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+div.content > section h1 { font-size: 2.2em; }
+div.content > section h2 { font-size: 1.8em; }
+div.content > section h3 { font-size: 1.5em; }
+
+div.content > section p {
+  color: inherit; /* Inherit color from section (set by JS) */
+  line-height: 1.7; /* Slightly more line height for readability */
   margin-bottom: 1em;
 }
-.tab-content ol {
-  list-style-type: decimal;
-  padding-left: 2em; /* Standard padding for ordered lists */
+
+div.content > section a {
+  color: inherit; /* Inherit color from section (set by JS) */
+  text-decoration: underline; /* Make links clear */
+  font-weight: bold; /* Make links stand out slightly more */
+}
+
+div.content > section a:hover {
+  /* No specific hover color, relies on underline and boldness. 
+     Could add a brightness filter or different underline if needed, 
+     but hard to pick one color for all dynamic backgrounds. */
+  text-decoration: none; /* Example: remove underline on hover */
+}
+
+div.content > section ul,
+div.content > section ol {
+  color: inherit; /* Inherit color from section (set by JS) */
+  padding-left: 2em; /* Standard padding */
   margin-bottom: 1em;
 }
-.tab-content li {
-  list-style: inherit; /* Inherit from parent ul/ol */
+
+div.content > section li {
+  color: inherit; /* Inherit color from section (set by JS) */
+  list-style: inherit; /* Maintain disc/decimal from parent ul/ol */
   display: list-item;
-  margin-left: 1em; /* Standard margin for list items */
+  margin-left: 1em; /* Standard margin */
+  line-height: 1.7;
+}
+
+/* Ensure any global styles for ul/li are not overriding section-specific inheritance */
+body > ul, body > ol { /* More specific selector if global ul/li styles were too broad */
+    padding-left: 2em;
+}
+body > li {
+    margin-left: 1em;
 }
