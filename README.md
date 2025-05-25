@@ -24,7 +24,6 @@ As this is a simple static website, testing is primarily manual:
 2. **Functionality Check:**
     - Click on all navigation tabs (About, Speaking, Writing, Teaching) to ensure they switch content correctly.
     - Test all external links to make sure they lead to the correct destinations.
-    - Verify that any interactive elements, like the scroll reveal effect, are working as expected.
 3. **(Optional) Linting:**
     - You can use linters to check the quality of the HTML, CSS, and JavaScript code.
     - For HTML, consider using a tool like the [W3C Markup Validation Service](https://validator.w3.org/).

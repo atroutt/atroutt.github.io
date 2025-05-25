@@ -30,7 +30,7 @@
   Bright Purple: #B056F0
   Medium Gray-Purple: #6A6070
   Dark Gray-Green: #434535 (for text)
-  Light Gray (for text on dark bg): #D0D0D0 (example, adjust as needed)
+  Light Gray (for text on dark bg): #E0E0E0 (example, adjust as needed)
   Neutral Background: #FDFDFD
 */
 
@@ -127,7 +127,7 @@ header h1 { /* Site title in header */
 }
 
 header p { /* Tagline in header */
-  color: #D0D0D0; /* Light gray for contrast */
+  color: #E0E0E0; /* Light gray for contrast */
   font-size: 1em; /* Adjusted */
   padding: 0; /* Reset from global p */
   margin-top: 0; /* Tighten spacing */
@@ -161,7 +161,7 @@ header p { /* Tagline in header */
 footer {
   background-color: #6A6070;
   padding: 20px;
-  color: #D0D0D0;
+  color: #E0E0E0;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -220,7 +220,7 @@ footer .buttons {
 
 #main-nav a.nav-link.active {
   background-color: #B056F0; /* Bright purple, for active link background */
-  color: #2E2E2E; /* New text color for better contrast */
+  color: #141414; /* New text color for better contrast */
   font-weight: bold;
 }
 
