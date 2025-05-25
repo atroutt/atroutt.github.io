@@ -21,10 +21,10 @@
         <h1>Audrey Troutt</h1>
         <p>Startup CTO & hands-on engineering leader building products, teams, and cultures that scale.</p>
         <nav id="main-nav">
-          <a href="#about" class="nav-link">About</a>           <!-- Remains a hash link for index.html's own JS -->
-          <a href="speaking.html" class="nav-link">Speaking</a> <!-- Points to speaking.html -->
-          <a href="writing.html" class="nav-link">Writing</a>   <!-- Points to writing.html -->
-          <a href="teaching.html" class="nav-link">Teaching</a> <!-- Points to teaching.html -->
+          <a href="/" class="nav-link">About</a>
+          <a href="/speaking/" class="nav-link">Speaking</a>
+          <a href="/writing/" class="nav-link">Writing</a>
+          <a href="/teaching/" class="nav-link">Teaching</a>
         </nav>
       </header>
       <!-- Content sections are now direct children of div.content -->
@@ -105,7 +105,8 @@
         });
         // Only activate the "About" link in index.html's context
         if (activePageName === 'about') {
-          const activeLink = document.querySelector('.nav-link[href="#about"]');
+          // Updated to match the new href for "About"
+          const activeLink = document.querySelector('.nav-link[href="/"]');
           if (activeLink) {
             activeLink.classList.add('active');
           }

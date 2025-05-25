@@ -56,7 +56,7 @@ function loadPageSpecificContent(pageName) {
   });
 
   // Construct the href for the active link, e.g., "speaking.html"
-  const activeLinkHref = pageName + '.html';
+  const activeLinkHref = '/' + pageName + '/'; // <--- MODIFIED LINE
   const activeLink = document.querySelector('#main-nav a.nav-link[href="' + activeLinkHref + '"]');
   if (activeLink) {
     activeLink.classList.add('active');
