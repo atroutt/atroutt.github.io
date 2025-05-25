@@ -72,7 +72,6 @@ h1 {
   font-weight: 700;
   text-align: left;
   padding-left: 0; /* Adjusted for header padding */
-  /* color: #434535; Default, overridden in header */
 }
 
 
@@ -85,7 +84,6 @@ h1 {
 p { /* Global paragraph style */
   font-size: 18px;
   margin-bottom: 10px;
-  /* color: #434535; Inherits from body */
 }
 
 /* Feature images used within markdown content */
@@ -102,23 +100,6 @@ p { /* Global paragraph style */
   max-width: 50%;
 }
 
-.header-image { /* Preserved if used elsewhere, though not in current header structure */
-  float: right;
-  padding: 10px;
-  max-width: 50%;
-}
-
-@media screen and (max-width: 1050px) {
-  /* This rule also applies to .feature-image and .feature-image-right if they were intended to be hidden.
-     However, the task is about desktop float, so we'll keep their general float rules.
-     The original media query for .feature-image specifically was (max-width: 580px) to stack them.
-     Let's ensure that responsive stacking behavior is also preserved or reinstated if it was removed.
-  */
-  .header-image { /* This specific rule only targets .header-image */
-    display: none;
-  }
-}
-
 /* Responsive adjustments for feature images (stacking on small screens) */
 @media screen and (max-width: 580px) {
   .feature-image,
@@ -132,14 +113,10 @@ p { /* Global paragraph style */
 }
 
 header {
-  /* height: 287px; Removed fixed height for flexibility */
   background-color: #6A6070; /* Medium gray-purple */
   padding: 10px 20px; /* Reduced top/bottom padding */
   display: block; /* Ensure children stack vertically */
-  /* Removed flex properties: justify-content, align-items, flex-wrap */
 }
-
-/* header .header-text-container { Removed - no longer needed for flex layout } */
 
 header h1 { /* Site title in header */
   color: #DEF056; /* Lime */
@@ -173,13 +150,8 @@ header p { /* Tagline in header */
     width: 100%; /* Make nav take full width to center its items */
   }
   #main-nav a.nav-link {
-    /* display: block; Removed to allow side-by-side */
-    /* margin-left: 0; Removed */
-    /* margin-bottom: 5px; Removed */
-    /* text-align: center; Removed as links are no longer block full-width */
     padding: 6px 8px; /* Adjusted padding for mobile */
     margin: 4px; /* Spacing around each link */
-    /* font-size: 0.9em; /* Optional: if text size needs slight reduction - keeping default for now */
   }
   div.content > section > h1 { /* Hide page titles from markdown on mobile */
     display: none;
@@ -202,7 +174,6 @@ footer ul { /* Social media list */
   padding-left: 0;
   margin: 0;
   display: inline-block; /* To allow centering via text-align on parent */
-  /* text-align: center; This was also on footer, so ul being inline-block will be centered by parent */
 }
 
 footer ul li {
@@ -212,19 +183,6 @@ footer ul li {
   margin: 0; /* Spacing is handled by .buttons inside */
   padding: 0; /* Reset padding */
 }
-/*
-footer ul li:after { content:"·"; color: #D0D0D0; margin: 0 5px; }
-footer ul li:last-child:after { content:""; }
-footer ul li a {
- margin:0;
- color: #DEF056;
- text-decoration: none;
-}
-footer ul li a:hover {
- color: #FFFFFF;
- text-decoration: underline;
-}
-*/
 
 footer .buttons {
   background-color: #DEF056; /* Lime */
