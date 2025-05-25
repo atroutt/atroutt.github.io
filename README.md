@@ -36,3 +36,15 @@ As this is a simple static website, testing is primarily manual:
     - For JavaScript, [ESLint](https://eslint.org/) or [JSHint](https://jshint.com/) are popular choices.
 
 If you're not me and you actually did all this, let me know if something's broken!
+
+## Running Locally
+
+To run this website locally:
+
+1.  Open your terminal.
+2.  Navigate to the root directory of this project.
+3.  Run the command:
+    ```bash
+    python3 -m http.server
+    ```
+4.  Open your web browser and go to `http://localhost:8000`.

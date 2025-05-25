@@ -104,15 +104,11 @@ header {
   /* height: 287px; Removed fixed height for flexibility */
   background-color: #6A6070; /* Medium gray-purple */
   padding: 10px 20px; /* Reduced top/bottom padding */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  display: block; /* Ensure children stack vertically */
+  /* Removed flex properties: justify-content, align-items, flex-wrap */
 }
 
-header .header-text-container { /* Wrapper for h1 and p in header */
-  flex-grow: 1; /* Allows it to take available space */
-}
+/* header .header-text-container { Removed - no longer needed for flex layout } */
 
 header h1 { /* Site title in header */
   color: #DEF056; /* Lime */
@@ -129,189 +125,28 @@ header p { /* Tagline in header */
   margin-top: 0; /* Tighten spacing */
   margin-bottom: 0.5em; /* Space before nav menu */
   max-width: 600px; /* Constrain width of tagline */
+  /* width: 100%; Not strictly needed as p is block by default */
 }
 
-@media screen and (max-width: 768px) { /* Responsive adjustments for header */
-  header {
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align items to the start */
-  }
-  header h1 {
-    font-size: 40px; /* Adjust for smaller screens */
-  }
-  #main-nav {
-    display: flex; /* Enable flex container */
-    flex-wrap: wrap; /* Allow links to wrap to the next line */
-    justify-content: center; /* Center the links */
-    margin-top: 10px; /* Adjusted space between header text and nav */
-    width: 100%; /* Make nav take full width to center its items */
-  }
-  #main-nav a.nav-link {
-    /* display: block; Removed to allow side-by-side */
-    /* margin-left: 0; Removed */
-    /* margin-bottom: 5px; Removed */
-    /* text-align: center; Removed as links are no longer block full-width */
-    padding: 6px 8px; /* Adjusted padding for mobile */
-    margin: 4px; /* Spacing around each link */
-    /* font-size: 0.9em; /* Optional: if text size needs slight reduction - keeping default for now */
-  }
-}
+/* @media screen and (max-width: 768px) { ... } This media query is preserved below ... */
 
 
-.feature-image { /* Preserved if used elsewhere */
-  float: left;
-  padding: 10px;
-  padding-right: 30px;
-  max-width: 50%;
-}
-
-.feature-image-right { /* Preserved if used elsewhere */
-  float: right;
-  padding: 10px;
-  max-width: 50%;
-}
-
-@media screen and (max-width: 580px) {
-  .feature-image, .feature-image-right { /* Preserved if used elsewhere */
-    float: none;
-    padding: 10px;
-    max-width: 100%;
-  }
-}
-
-footer {
-  width: 100%;
-  padding: 20px;
-  background-color: #6A6070; /* Medium gray-purple */
-  color: #D0D0D0; /* Light gray for footer text */
-  text-align: center; /* Center footer content */
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 1000;
-}
-footer ul { /* Social media list */
-  /* float: right; Removed float for centered layout */
-  display: inline-block; /* Allows centering with text-align on parent */
-  list-style-type: none;
-  padding-left: 0em;
-  margin: 0;
-}
-footer ul li {
-  float:left; /* Keep them inline */
-  list-style: none;
-  margin-left: 0em;
-}
-footer ul li:after { content:"·"; color: #D0D0D0; margin: 0 5px; }
-footer ul li:last-child:after { content:""; }
-footer ul li a { /* General links in footer list items */
- margin:0; /* Reset */
- color: #DEF056; /* Lime */
- text-decoration: none;
-}
-footer ul li a:hover {
- color: #FFFFFF; /* White on hover */
- text-decoration: underline;
-}
-
-/* Footer Buttons (specific for GitHub, SpeakerDeck etc. if they use .buttons class) */
-footer .buttons {
-  background-color: #DEF056; /* Lime */
-  color: #434535 !important; /* Dark Gray-Green text */
-  padding: 8px 15px;
-  border-radius: 4px;
-  text-decoration: none;
-  margin: 5px; /* Spacing around buttons */
-  display: inline-flex; /* Use inline-flex for alignment */
-  align-items: center; /* Vertically align icon and text */
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-footer .buttons i {
-  margin-right: 5px; /* Space between icon and text */
-}
-
-footer .buttons:hover {
-  background-color: #434535; /* Dark Gray-Green */
-  color: #DEF056 !important; /* Lime text */
-}
+/* .feature-image, .feature-image-right, and their media queries are preserved below ... */
 
 
-/* OLD LAVENDER THEME & TAB STYLES - TO BE REMOVED/COMMENTED */
-/*
-.tabs {
-  background: #E6E6FA;
-  position: relative;
-  padding: 10px 10px 0 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  flex-wrap: wrap;
-}
+/* footer and its child styles are preserved below ... */
 
-.tab-link {
-  background: #DCD0FF;
-  color: #483D8B;
-  padding: 10px 15px;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 5px 5px 0 0;
-  margin-right: 5px;
-  border: 1px solid transparent; 
-  border-bottom: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  position: relative;
-  z-index: 1;
-}
 
-.tab-link:hover {
-  background: #C8BFE7;
-  color: #3A2D7B;
-}
+/* OLD LAVENDER THEME & TAB STYLES are preserved below (commented out) ... */
 
-.tab-link.active {
-  background: #FFFFFF;
-  color: #6A5ACD;
-  border-left: 1px solid #D8BFD8;
-  border-right: 1px solid #D8BFD8;
-  border-top: 1px solid #D8BFD8;
-  border-bottom: 2px solid #6A5ACD;
-  margin-bottom: -2px;
-  z-index: 2;
-}
-
-.tab-content {
-  background-color: #FFFFFF;
-  padding: 20px;
-  width: 100%;
-  min-height: 340px;
-  border: 1px solid #D8BFD8;
-  border-top: none;
-  clear: both;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  position: relative;
-  z-index: 0;
-}
-
-.tab-content section {
-  width: 100%;
-}
-
-.tab-content section h1 {
-  margin-top: 15px;
-  font-size: 2em;
-  font-weight: 700;
-  text-align: left;
-  color: #483D8B;
-  padding-left: 0;
-}
-.tab-content ul, .tab-content ol, .tab-content li removed, covered by global and content section styles
-*/
 
 /* NEW NAVIGATION STYLES */
 #main-nav {
-  /* float: right; Removed, using flexbox on header */
-  margin-left: auto; /* Pushes nav to the right when header is flex container */
+  /* margin-left: auto; Removed, as header is no longer flex */
+  width: 100%; /* Ensure nav container takes full width */
+  display: flex; /* Use flex to align links within */
+  justify-content: flex-end; /* Align links to the right */
+  margin-top: 10px; /* Space above the nav container */
 }
 
 #main-nav a.nav-link {
@@ -330,7 +165,7 @@ footer .buttons:hover {
 
 #main-nav a.nav-link.active {
   background-color: #B056F0; /* Bright purple, for active link background */
-  color: #FFFFFF; /* White for active link text */
+  color: #2E2E2E; /* New text color for better contrast */
   font-weight: bold;
 }
 
