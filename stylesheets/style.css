@@ -134,30 +134,6 @@ header p { /* Tagline in header */
   margin-bottom: 0.5em; /* Space before nav menu */
 }
 
-@media screen and (max-width: 768px) { /* Responsive adjustments for header */
-  header {
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align items to the start */
-  }
-  header h1 {
-    font-size: 40px; /* Adjust for smaller screens */
-  }
-  #main-nav {
-    display: flex; /* Enable flex container */
-    flex-wrap: wrap; /* Allow links to wrap to the next line */
-    justify-content: center; /* Center the links */
-    margin-top: 10px; /* Adjusted space between header text and nav */
-    width: 100%; /* Make nav take full width to center its items */
-  }
-  #main-nav a.nav-link {
-    padding: 6px 8px; /* Adjusted padding for mobile */
-    margin: 4px; /* Spacing around each link */
-  }
-  div.content > section > h1 { /* Hide page titles from markdown on mobile */
-    display: none;
-  }
-}
-
 footer {
   background-color: #6A6070;
   padding: 20px;
@@ -187,7 +163,7 @@ footer ul li {
 footer .buttons {
   background-color: #DEF056; /* Lime */
   color: #434535 !important; /* Dark Gray-Green text */
-  padding: 8px 15px;
+  padding: 8px 12px;
   border-radius: 4px;
   text-decoration: none;
   margin: 5px;
@@ -195,6 +171,8 @@ footer .buttons {
   font-weight: bold; */
   transition: background-color 0.3s ease, color 0.3s ease; */
 }
+
+
 
 /* NEW NAVIGATION STYLES */
 #main-nav {
@@ -208,7 +186,6 @@ footer .buttons {
   color: #DEF056; /* Lime */
   text-decoration: none;
   padding: 10px 15px;
-  margin-left: 10px; /* For spacing between links */
   border-radius: 4px; /* Slightly rounded buttons */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -283,6 +260,33 @@ div.content > section li {
   display: list-item;
   margin-left: 1em; /* Standard margin */
   line-height: 1.7;
+}
+
+@media screen and (max-width: 768px) { /* Responsive adjustments for header */
+  header {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+  header h1 {
+    font-size: 40px; /* Adjust for smaller screens */
+  }
+  #main-nav {
+    display: flex; /* Enable flex container */
+    flex-wrap: wrap; /* Allow links to wrap to the next line */
+    justify-content: center; /* Center the links */
+    margin-top: 10px; /* Adjusted space between header text and nav */
+    width: 100%; /* Make nav take full width to center its items */
+  }
+  #main-nav a.nav-link {
+    padding: 6px 8px; /* Adjusted padding for mobile */
+  }
+  div.content > section > h1 { /* Hide page titles from markdown on mobile */
+    display: none;
+  }
+
+  footer .buttons {
+    padding: 4px 6px;
+  }
 }
 
 /* Ensure any global styles for ul/li are not overriding section-specific inheritance */
