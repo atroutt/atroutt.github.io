@@ -12,6 +12,6 @@ She holds a Master of Computer and Information Technology degree from the Univer
 
 ## More about Audrey's Early Journey at Tomo
 
-<lite-youtube videoid="WYq5vHVED_Y" videoStartAt="13" style="width:560px;height:315px"></lite-youtube>
+<lite-youtube videoid="WYq5vHVED_Y" videoStartAt="13" style="width:560px;height:315px;max-width:100%"></lite-youtube>
 
 This is from the 2022 Philly Emerging Technologies for the Enterprise conference, on building Tomo's engineering team and platform from the ground up.
