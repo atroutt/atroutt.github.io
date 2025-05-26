@@ -230,6 +230,7 @@ div.content > section {
   display: none; /* Hidden by default, JS will show active one */
   padding: 20px;
   min-height: 120vh;
+  padding-bottom: 60px;
   /* background-color and color are set by JS (applyPageStyles) */
 }
 
