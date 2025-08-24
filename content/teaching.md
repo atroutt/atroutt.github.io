@@ -44,7 +44,7 @@ Tune, Seattle, January 2017
 
 I co-wrote and co-taught this workshop for girls age 11-14 for [TechGirlz](http://www.techgirlz.org/). This course is for students with any range of experience with programming and using hardware. We explain the basics of electronic circuits. Students learn to build circuits, program blinking lights, and use buttons. The lesson uses the programming language Scratch to program the hardware (buttons, lights). The students learn about programming concepts such as if statements and loops. This course was published to TechGirlz's TechShop library and has since been updated and re-taught numerous times. See the [original course repo](https://github.com/atroutt/scratch-pi).
 
-TechGirlz, Philadlephia, 2014
+TechGirlz, Philadelphia, 2014
 
 <br>
 
