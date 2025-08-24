@@ -2,7 +2,7 @@
 
 ## Android for Beginners
 
-This is a practical introduction to app development on Android. At the end of this class students know not only how to start a new app project, but also how some of the most common features in Android apps are implemented. Students become acquainted with standard Android, Google, and open source libraries for building Android apps. Course sections include: Running your first app, Anatomy of an app, APIs and authentication, Cameras and photos, and Testing and Refactoring. See the [complete course deck](https://audreytroutt.com/android-beginners/#/).
+This is a practical introduction to app development on Android. At the end of this class students know not only how to start a new app project, but also how some of the most common features in Android apps are implemented. Students become acquainted with standard Android, Google, and open source libraries for building Android apps. Course sections include: Running your first app, Anatomy of an app, APIs and authentication, Cameras and photos, and Testing and Refactoring.
 
 It is important to build things from scratch, understand existing code, and take things apart. Therefore the coding exercises area a combination of read and edit, build from pieces, and starting from scratch.
 
